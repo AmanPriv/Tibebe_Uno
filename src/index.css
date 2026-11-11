@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+:root {
+  --color-bg: #F5EFE6;
+  --color-surface: #FBF8F3;
+  --color-sand: #E8DCC8;
+  --color-text-primary: #2B2118;
+  --color-text-secondary: #5C4E40;
+  --color-heading-accent: #3B2F24;
+  --color-cta: #8A6A3B;
+  --color-cta-hover: #6F5430;
+  --color-cta-text: #FFFFFF;
+  --color-trust: #2F4A3A;
+}
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --color-beige-bg: #F5EFE6;
+  --color-beige-surface: #FBF8F3;
+  --color-beige-sand: #E8DCC8;
+  --color-espresso: #2B2118;
+  --color-espresso-muted: #5C4E40;
+  --color-espresso-heading: #3B2F24;
+  --color-bronze: #8A6A3B;
+  --color-bronze-hover: #6F5430;
+  --color-forest: #2F4A3A;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Gentle fade-up animation that respects reduced motion */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeInUp 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
