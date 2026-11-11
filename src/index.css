@@ -66,15 +66,19 @@ html {
   animation: fadeInUp 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* TM Monogram Loading Animation: Letters T and M Coming Together */
+/* TM Monogram Loading Animation: Unhurried Luxury Convergence of Letters T and M */
 @keyframes tmConvergeLeft {
   0% {
     opacity: 0;
-    transform: translateX(-22px) scale(0.94);
+    transform: translateX(-26px) scale(0.92);
   }
-  65% {
+  20% {
+    opacity: 0.4;
+    transform: translateX(-20px) scale(0.95);
+  }
+  78% {
     opacity: 1;
-    transform: translateX(1.5px) scale(1);
+    transform: translateX(1px) scale(1);
   }
   100% {
     opacity: 1;
@@ -85,11 +89,15 @@ html {
 @keyframes tmConvergeRight {
   0% {
     opacity: 0;
-    transform: translateX(22px) scale(0.94);
+    transform: translateX(26px) scale(0.92);
   }
-  65% {
+  20% {
+    opacity: 0.4;
+    transform: translateX(20px) scale(0.95);
+  }
+  78% {
     opacity: 1;
-    transform: translateX(-1.5px) scale(1);
+    transform: translateX(-1px) scale(1);
   }
   100% {
     opacity: 1;
@@ -101,7 +109,7 @@ html {
   0% {
     stroke-dasharray: 220;
     stroke-dashoffset: 220;
-    opacity: 0.3;
+    opacity: 0.25;
   }
   100% {
     stroke-dasharray: 220;
@@ -111,11 +119,8 @@ html {
 }
 
 @keyframes tmAxisGrow {
-  0% {
-    opacity: 0;
-    transform: scaleY(0);
-  }
-  40% {
+  0%,
+  45% {
     opacity: 0;
     transform: scaleY(0);
   }
@@ -126,11 +131,20 @@ html {
 }
 
 @keyframes tmCaptionReveal {
-  0% {
+  0%,
+  38% {
     opacity: 0;
-    transform: translateY(6px);
+    transform: translateY(8px);
   }
-  35% {
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tmSubcaptionReveal {
+  0%,
+  52% {
     opacity: 0;
     transform: translateY(6px);
   }
@@ -152,34 +166,39 @@ html {
 .tm-letter-t {
   transform-box: fill-box;
   transform-origin: center;
-  animation: tmConvergeLeft 0.68s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: tmConvergeLeft 1.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .tm-letter-m {
   transform-box: fill-box;
   transform-origin: center;
-  animation: tmConvergeRight 0.68s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: tmConvergeRight 1.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .tm-frame-draw {
-  animation: tmFrameDraw 0.72s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: tmFrameDraw 1.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .tm-axis-grow {
   transform-box: fill-box;
   transform-origin: center;
-  animation: tmAxisGrow 0.68s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: tmAxisGrow 1.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .tm-keystone-fade {
-  animation: tmCaptionReveal 0.68s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: tmCaptionReveal 1.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .tm-caption-reveal {
-  animation: tmCaptionReveal 0.72s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: tmCaptionReveal 1.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.tm-subcaption-reveal {
+  animation: tmSubcaptionReveal 1.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .tm-progress-sweep {
-  animation: tmProgressSweep 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: tmProgressSweep 2.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
+
 
