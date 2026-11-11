@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { validateConsultationForm, formatInquiryReference } from './validation';
-import { SERVICES, CORE_VALUES, PROCESS_STEPS, INDUSTRIES, TEAM_MEMBERS, TESTIMONIALS, FAQ_ITEMS } from '../data/firmData';
+import { FIRM_INFO, SERVICES, CORE_VALUES, PROCESS_STEPS, INDUSTRIES, TEAM_MEMBERS, FAQ_ITEMS } from '../data/firmData';
 
 test('validateConsultationForm rejects empty fields with clear messages', () => {
   const result = validateConsultationForm({
@@ -58,12 +58,19 @@ test('formatInquiryReference generates deterministic readable reference code', (
   assert.equal(ref, 'TMC-2026-STA-HORI');
 });
 
-test('firmData satisfies all structural requirements from specification', () => {
-  assert.equal(SERVICES.length, 8);
+test('firmData satisfies all structural requirements and updated credentials', () => {
+  assert.equal(SERVICES.length, 9);
+  assert.ok(SERVICES.some((s) => s.title === 'Company Liquidation'));
   assert.equal(CORE_VALUES.length, 4);
   assert.equal(PROCESS_STEPS.length, 4);
   assert.equal(INDUSTRIES.length, 8);
-  assert.equal(TEAM_MEMBERS.length, 3);
-  assert.equal(TESTIMONIALS.length, 3);
+  assert.equal(TEAM_MEMBERS.length, 1);
+  assert.equal(TEAM_MEMBERS[0].namePlaceholder, 'Tibebe Mengistu, BA, FCCA');
+  assert.equal(TEAM_MEMBERS[0].titlePlaceholder, 'Owner & Principal');
+  assert.ok(FIRM_INFO.addressPlaceholder.includes('Bole, Abyssinia Plaza, 6th Floor'));
+  assert.equal(FIRM_INFO.phonePlaceholder, '+251 911 516 027');
+  assert.equal(FIRM_INFO.emailPlaceholder, 'Tibebe@Tibebemengistu.com');
+  assert.equal(FIRM_INFO.hoursPlaceholder, 'Monday – Friday: 8:30 AM – 5:30 PM');
+  assert.equal(FIRM_INFO.mapUrl, 'https://maps.app.goo.gl/TmEpxF8mNhRVDahY7');
   assert.equal(FAQ_ITEMS.length, 6);
 });

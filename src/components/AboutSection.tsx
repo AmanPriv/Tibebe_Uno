@@ -25,13 +25,13 @@ export const AboutSection: React.FC = () => {
 
             <div className="mt-6 space-y-4 text-base text-[#5C4E40] leading-[1.65] max-w-[65ch]">
               <p>
-                Established in <strong className="font-medium text-[#2B2118]">{FIRM_INFO.yearEstablishedPlaceholder}</strong> in {FIRM_INFO.jurisdictionPlaceholder}, <strong className="font-medium text-[#2B2118]">{FIRM_INFO.name}</strong> was founded to provide corporate boards, non-governmental organizations, financial institutions, and investors with independent, technically rigorous assurance.
+                Established in <strong className="font-medium text-[#2B2118]">{FIRM_INFO.yearEstablishedPlaceholder}</strong> in {FIRM_INFO.jurisdictionPlaceholder} and led by <strong className="font-medium text-[#2B2118]">{FIRM_INFO.principalName}</strong> ({FIRM_INFO.principalTitle}), <strong className="font-medium text-[#2B2118]">{FIRM_INFO.name}</strong> provides corporate boards, non-governmental organizations, financial institutions, and investors with independent, technically rigorous assurance.
               </p>
               <p>
-                As {FIRM_INFO.descriptor} registered under <strong className="font-medium text-[#2B2118]">{FIRM_INFO.regulatoryLicensePlaceholder}</strong>, we have supported <strong className="font-medium text-[#2B2118]">{FIRM_INFO.clientCountPlaceholder}</strong> organizations across commercial and development sectors. We view an audit not merely as a statutory obligation, but as an opportunity to strengthen internal governance and financial clarity.
+                As <strong className="font-medium text-[#2B2118]">{FIRM_INFO.descriptor}</strong> registered under <strong className="font-medium text-[#2B2118]">{FIRM_INFO.regulatoryLicensePlaceholder}</strong>, we have supported <strong className="font-medium text-[#2B2118]">{FIRM_INFO.clientCountPlaceholder}</strong> organizations across commercial and development sectors.
               </p>
               <p>
-                Every engagement is led directly by senior partners who remain accessible throughout the year—providing measured guidance as accounting standards and tax legislation evolve.
+                Our core practice specialties encompass <strong className="font-medium text-[#2B2118]">external audit, tax advisory, due diligence audit, company liquidation, and accounting services</strong>—combining international FCCA (UK) technical standards with deep mastery of Ethiopian commercial and tax law.
               </p>
             </div>
 

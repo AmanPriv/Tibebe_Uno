@@ -10,6 +10,7 @@ export interface ServiceItem {
     | 'FileSpreadsheet'
     | 'Compass'
     | 'SearchCheck'
+    | 'FileCheck2'
     | 'Users';
   summary: string;
   deliverables: string[];
@@ -73,33 +74,36 @@ export interface FaqItem {
 
 export const FIRM_INFO = {
   name: 'Tibebe Mengistu & Co.',
-  descriptor: 'Authorized Chartered Accountants',
+  descriptor: 'Chartered Certified Accountants (UK) · Authorized Auditors (Ethiopia)',
   tagline: 'Clarity. Integrity. Assurance.',
+  principalName: 'Tibebe Mengistu, BA, FCCA',
+  principalTitle: 'Owner & Principal',
   yearEstablishedPlaceholder: '[Year Established]',
   clientCountPlaceholder: '[Number of Clients]',
-  regulatoryLicensePlaceholder: '[Regulatory Body & License Number]',
-  managingPartnerPlaceholder: '[Managing Partner Name, FCCA / CPA]',
-  jurisdictionPlaceholder: '[City, Country]',
-  addressPlaceholder: '[Building Name, Floor / Suite, Street Address, City]',
-  phonePlaceholder: '[+251 (0) 11 XXX XXXX / Primary Office Telephone]',
-  secondaryPhonePlaceholder: '[+251 (0) 9XX XXX XXX / Direct Consultation Line]',
-  emailPlaceholder: '[inquiries@tibebemengistu-audit.com]',
-  hoursPlaceholder: '[Monday – Friday: 8:30 AM – 5:30 PM | Saturday: 9:00 AM – 12:30 PM]',
-  mapCoordinatesPlaceholder: '[Map Embed / Office District & Landmark Directions]',
+  regulatoryLicensePlaceholder: '[AABE / Authorized Auditor License Number]',
+  jurisdictionPlaceholder: 'Addis Ababa, Ethiopia',
+  addressPlaceholder: 'Bole, Abyssinia Plaza, 6th Floor, Addis Ababa, Ethiopia',
+  phonePlaceholder: '+251 911 516 027',
+  emailPlaceholder: 'Tibebe@Tibebemengistu.com',
+  hoursPlaceholder: 'Monday – Friday: 8:30 AM – 5:30 PM',
+  mapCoordinatesPlaceholder: 'Bole, Abyssinia Plaza, 6th Floor · Addis Ababa, Ethiopia',
+  mapUrl: 'https://maps.app.goo.gl/TmEpxF8mNhRVDahY7',
+  mapEmbedUrl:
+    'https://www.google.com/maps?q=Abyssinia+Plaza,+Bole,+Addis+Ababa,+Ethiopia&output=embed',
 };
 
 export const SERVICES: ServiceItem[] = [
   {
     id: 'statutory-audit',
     number: '01',
-    title: 'Statutory Audit',
+    title: 'Statutory & External Audit',
     iconName: 'ShieldCheck',
     summary:
-      'Independent examination of annual financial statements in accordance with International Standards on Auditing (ISA) and national regulatory mandates.',
+      'Independent external audit of annual financial statements in accordance with International Standards on Auditing (ISA) and Ethiopian regulatory mandates.',
     deliverables: [
-      'Independent Auditor’s Report',
+      'Independent External Auditor’s Report',
       'Management Letter on Internal Controls',
-      'Regulatory Filing Attestation',
+      'Statutory & Donor Grant Attestation',
     ],
     audience: 'Corporations, Banks, NGOs & Public Interest Entities',
   },
@@ -120,21 +124,21 @@ export const SERVICES: ServiceItem[] = [
   {
     id: 'tax-planning',
     number: '03',
-    title: 'Tax Planning & Compliance',
+    title: 'Tax Planning, Advisory & Compliance',
     iconName: 'Scale',
     summary:
-      'Structured corporate tax advisory, timely statutory declarations, withholding and VAT reviews, and representation during tax authority assessments.',
+      'Strategic corporate tax advisory, timely statutory declarations, withholding and VAT reviews, and representation during tax authority assessments.',
     deliverables: [
       'Annual Corporate Income Tax Computation',
       'VAT, Withholding & Excise Health Checks',
-      'Tax Clearance & Audit Representation',
+      'Tax Advisory & Assessment Representation',
     ],
     audience: 'Commercial Entities, Exporters & Multinationals',
   },
   {
     id: 'accounting-bookkeeping',
     number: '04',
-    title: 'Accounting & Bookkeeping',
+    title: 'Accounting & Bookkeeping Services',
     iconName: 'BookOpen',
     summary:
       'Methodical maintenance of general ledgers, chart-of-accounts architecture, bank reconciliations, and monthly management reporting packages.',
@@ -160,8 +164,36 @@ export const SERVICES: ServiceItem[] = [
     audience: 'Banks, Corporates & Donor-Funded Programs',
   },
   {
-    id: 'business-advisory',
+    id: 'due-diligence',
     number: '06',
+    title: 'Due Diligence & Feasibility Studies',
+    iconName: 'SearchCheck',
+    summary:
+      'Rigorous financial and tax due diligence audits for mergers, acquisitions, joint ventures, credit underwriting, and capital project viability assessments.',
+    deliverables: [
+      'Buy-Side / Sell-Side Due Diligence Audit',
+      'Quality of Earnings & Historical Liability Review',
+      'Bankable Project Feasibility Study',
+    ],
+    audience: 'Private Equity, Commercial Banks & Strategic Investors',
+  },
+  {
+    id: 'company-liquidation',
+    number: '07',
+    title: 'Company Liquidation',
+    iconName: 'FileCheck2',
+    summary:
+      'End-to-end statutory company liquidation and winding-up management, including liquidation audits, creditor settlement verification, and tax clearance.',
+    deliverables: [
+      'Closing & Liquidation Financial Statements Audit',
+      'Asset Realization & Creditor Settlement Schedules',
+      'Tax Authority & Commercial Register Deregistration Support',
+    ],
+    audience: 'Shareholders, Foreign Branches, Joint Ventures & Boards',
+  },
+  {
+    id: 'business-advisory',
+    number: '08',
     title: 'Business Advisory',
     iconName: 'Compass',
     summary:
@@ -174,22 +206,8 @@ export const SERVICES: ServiceItem[] = [
     audience: 'Founders, Executive Teams & Institutional Boards',
   },
   {
-    id: 'due-diligence',
-    number: '07',
-    title: 'Due Diligence & Feasibility Studies',
-    iconName: 'SearchCheck',
-    summary:
-      'Rigorous financial and tax investigation for mergers, acquisitions, joint ventures, credit underwriting, and capital project viability assessments.',
-    deliverables: [
-      'Buy-Side / Sell-Side Financial Due Diligence',
-      'Quality of Earnings & Historical Liability Review',
-      'Bankable Project Feasibility Study',
-    ],
-    audience: 'Private Equity, Commercial Banks & Strategic Investors',
-  },
-  {
     id: 'payroll-support',
-    number: '08',
+    number: '09',
     title: 'Payroll Support',
     iconName: 'Users',
     summary:
@@ -220,7 +238,7 @@ export const CORE_VALUES: ValueItem[] = [
     id: 'technical-excellence',
     title: 'Technical Excellence',
     description:
-      'Rigorous application of ISA, IFRS, IPSAS, and prevailing tax statutes through partner-led supervision and multi-stage quality review.',
+      'Rigorous application of ISA, IFRS, IPSAS, and prevailing Ethiopian tax and commercial statutes under direct FCCA principal supervision.',
   },
   {
     id: 'confidentiality',
@@ -244,7 +262,7 @@ export const PROCESS_STEPS: ProcessStep[] = [
     title: 'Plan',
     subtitle: 'Risk Assessment & Audit Strategy',
     description:
-      'Our partner-led team evaluates your internal control environment, industry-specific regulatory risks, and materiality thresholds to design a tailored audit or advisory work program.',
+      'Our principal-led team evaluates your internal control environment, industry-specific regulatory risks, and materiality thresholds to design a tailored audit, tax, or liquidation work program.',
     deliverables: 'Audit Planning Memorandum · Document Request Schedule · Timeline',
   },
   {
@@ -281,7 +299,7 @@ export const INDUSTRIES: IndustryItem[] = [
   {
     id: 'banking-finance',
     name: 'Banking & Finance',
-    focus: 'IFRS 9 expected credit loss review, regulatory capital adequacy, internal risk assurance, and statutory audits.',
+    focus: 'IFRS 9 expected credit loss review, regulatory capital adequacy, internal risk assurance, and external audits.',
     iconName: 'Landmark',
   },
   {
@@ -318,64 +336,21 @@ export const INDUSTRIES: IndustryItem[] = [
 
 export const TEAM_MEMBERS: TeamMember[] = [
   {
-    id: 'partner-1',
+    id: 'principal-1',
     initials: 'TM',
-    namePlaceholder: 'Tibebe Mengistu [Confirm Full Credentials]',
-    titlePlaceholder: 'Managing Partner · Authorized Auditor',
-    credentialsPlaceholder: '[FCCA / CPA / Authorized Practising Certificate No.]',
+    namePlaceholder: 'Tibebe Mengistu, BA, FCCA',
+    titlePlaceholder: 'Owner & Principal',
+    credentialsPlaceholder:
+      'BA · Fellow, Association of Chartered Certified Accountants (FCCA, UK) · Authorized Auditor (Ethiopia)',
     bioPlaceholder:
-      '[Placeholder Bio: Over XX years of public practice experience leading statutory audits, IFRS conversions, and high-level regulatory advisory for commercial enterprises, financial institutions, and international NGOs.]',
-    focusAreas: ['Statutory Assurance', 'IFRS Implementation', 'Corporate Governance'],
-  },
-  {
-    id: 'partner-2',
-    initials: 'AP',
-    namePlaceholder: '[Audit & Assurance Partner Name]',
-    titlePlaceholder: 'Partner, Audit & Risk Assurance',
-    credentialsPlaceholder: '[ACCA / CPA / CIA Qualification Placeholder]',
-    bioPlaceholder:
-      '[Placeholder Bio: Specializes in complex statutory audits, donor-funded project attestations, and internal control architecture across manufacturing, banking, and development sectors.]',
-    focusAreas: ['Internal Control Reviews', 'NGO Grant Audits', 'Risk Advisory'],
-  },
-  {
-    id: 'director-3',
-    initials: 'TD',
-    namePlaceholder: '[Tax & Advisory Director Name]',
-    titlePlaceholder: 'Director, Tax Compliance & Transaction Advisory',
-    credentialsPlaceholder: '[Master of Laws in Taxation / CPA Placeholder]',
-    bioPlaceholder:
-      '[Placeholder Bio: Leads corporate tax structuring, statutory tax health checks, financial due diligence, and investment feasibility studies for domestic and cross-border organizations.]',
-    focusAreas: ['Tax Structuring', 'Financial Due Diligence', 'Feasibility Studies'],
-  },
-];
-
-export const TESTIMONIALS: TestimonialItem[] = [
-  {
-    id: 'testimonial-1',
-    quotePlaceholder:
-      '[Placeholder Client Testimonial: "Tibebe Mengistu & Co. conducted our annual statutory audit and IFRS review with exceptional rigor. Their Management Letter gave our board clear, practical recommendations that strengthened our internal controls."]',
-    clientNamePlaceholder: '[Client Executive Name Placeholder]',
-    rolePlaceholder: '[Chief Financial Officer / Board Audit Chair]',
-    organizationPlaceholder: '[Leading Commercial Enterprise / Financial Institution]',
-    engagementType: 'Statutory Audit & IFRS Reporting',
-  },
-  {
-    id: 'testimonial-2',
-    quotePlaceholder:
-      '[Placeholder Client Testimonial: "For our multi-donor development programs, timely and accurate grant audits are non-negotiable. The firm delivered thorough, independent verification ahead of every international reporting deadline."]',
-    clientNamePlaceholder: '[Country Director / Finance Manager Name]',
-    rolePlaceholder: '[Country Director]',
-    organizationPlaceholder: '[International NGO / Development Agency Placeholder]',
-    engagementType: 'Donor Grant Audit & Compliance',
-  },
-  {
-    id: 'testimonial-3',
-    quotePlaceholder:
-      '[Placeholder Client Testimonial: "Their financial due diligence and tax compliance review provided the clarity we needed prior to expanding our manufacturing operations. Calm, objective, and technically thorough."]',
-    clientNamePlaceholder: '[Managing Director Name Placeholder]',
-    rolePlaceholder: '[Managing Director]',
-    organizationPlaceholder: '[Industrial & Manufacturing Group Placeholder]',
-    engagementType: 'Tax Compliance & Due Diligence',
+      'Founder, Owner, and Principal (General Manager) of Tibebe Mengistu & Co. Personally leads and signs off on the firm’s external audit, tax advisory, due diligence audit, company liquidation, and accounting services engagements for commercial enterprises, financial institutions, non-governmental organizations, and investors across Ethiopia.',
+    focusAreas: [
+      'External Audit',
+      'Tax Advisory',
+      'Due Diligence Audit',
+      'Company Liquidation',
+      'Accounting Services',
+    ],
   },
 ];
 

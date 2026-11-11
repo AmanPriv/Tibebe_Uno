@@ -31,7 +31,7 @@ export const Footer: React.FC = () => {
             </a>
 
             <p className="mt-4 text-sm text-[#5C4E40] leading-[1.65] max-w-sm">
-              {FIRM_INFO.tagline} Providing independent statutory audit, internal risk review, IFRS reporting, tax compliance, and business advisory services.
+              {FIRM_INFO.tagline} Led by {FIRM_INFO.principalName} ({FIRM_INFO.principalTitle}), providing external audit, tax advisory, due diligence audit, company liquidation, and accounting services.
             </p>
 
             <p className="mt-4 text-xs text-[#5C4E40]">
@@ -66,15 +66,38 @@ export const Footer: React.FC = () => {
             <dl className="mt-4 space-y-2.5 text-sm text-[#5C4E40]">
               <div>
                 <dt className="sr-only">Address</dt>
-                <dd>{FIRM_INFO.addressPlaceholder}</dd>
+                <dd>
+                  <a
+                    href={FIRM_INFO.mapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="cursor-pointer hover:text-[#2B2118] hover:underline underline-offset-4 transition-colors duration-150"
+                  >
+                    {FIRM_INFO.addressPlaceholder}
+                  </a>
+                </dd>
               </div>
               <div>
                 <dt className="sr-only">Phone</dt>
-                <dd className="tabular-nums">{FIRM_INFO.phonePlaceholder}</dd>
+                <dd className="tabular-nums">
+                  <a
+                    href="tel:+251911516027"
+                    className="cursor-pointer hover:text-[#2B2118] hover:underline underline-offset-4 transition-colors duration-150"
+                  >
+                    {FIRM_INFO.phonePlaceholder}
+                  </a>
+                </dd>
               </div>
               <div>
                 <dt className="sr-only">Email</dt>
-                <dd className="break-all">{FIRM_INFO.emailPlaceholder}</dd>
+                <dd className="break-all">
+                  <a
+                    href={`mailto:${FIRM_INFO.emailPlaceholder}`}
+                    className="cursor-pointer hover:text-[#2B2118] hover:underline underline-offset-4 transition-colors duration-150"
+                  >
+                    {FIRM_INFO.emailPlaceholder}
+                  </a>
+                </dd>
               </div>
               <div>
                 <dt className="sr-only">Office Hours</dt>
@@ -90,7 +113,7 @@ export const Footer: React.FC = () => {
         <div className="mt-12 pt-8 border-t border-[#E8DCC8] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-xs text-[#5C4E40]">
           <p>© 2026 Tibebe Mengistu &amp; Co. All rights reserved.</p>
           <p>
-            Authorized Chartered Accountants · Independent Member Practice
+            {FIRM_INFO.descriptor}
           </p>
         </div>
       </div>

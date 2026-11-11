@@ -47,16 +47,16 @@ export const Header: React.FC<HeaderProps> = ({ onNavigateToContact }) => {
         isScrolled ? 'bg-[#FBF8F3]/95 backdrop-blur-md shadow-xs' : 'bg-[#F5EFE6]/95 backdrop-blur-xs'
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-8 px-4 py-3.5 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 sm:gap-8 px-4 py-3.5 sm:px-6 lg:px-8">
         {/* Zone 1: Brand Wordmark + Descriptor */}
         <a
           href="#top"
-          className="group flex flex-col cursor-pointer whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#3B2F24]"
+          className="group flex flex-col cursor-pointer min-w-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#3B2F24]"
         >
-          <span className="font-serif text-lg sm:text-xl font-semibold tracking-tight text-[#2B2118] group-hover:text-[#3B2F24] transition-colors duration-200">
+          <span className="font-serif text-lg sm:text-xl font-semibold tracking-tight text-[#2B2118] group-hover:text-[#3B2F24] transition-colors duration-200 whitespace-nowrap">
             {FIRM_INFO.name}
           </span>
-          <span className="text-[11px] font-medium tracking-wide text-[#5C4E40]">
+          <span className="text-[10.5px] sm:text-[11px] font-medium tracking-wide text-[#5C4E40] leading-snug">
             {FIRM_INFO.descriptor}
           </span>
         </a>

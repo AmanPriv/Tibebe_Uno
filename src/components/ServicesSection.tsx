@@ -7,6 +7,7 @@ import {
   FileSpreadsheet,
   Compass,
   SearchCheck,
+  FileCheck2,
   Users,
   ArrowUpRight,
 } from 'lucide-react';
@@ -24,6 +25,7 @@ const SERVICE_ICONS: Record<ServiceItem['iconName'], React.ComponentType<{ class
   FileSpreadsheet,
   Compass,
   SearchCheck,
+  FileCheck2,
   Users,
 };
 
@@ -38,21 +40,21 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
         {/* Section Header */}
         <div className="max-w-3xl">
           <p className="text-xs sm:text-sm font-medium text-[#6F5430]">
-            Practice Areas &amp; Capabilities
+            Practice Areas &amp; Core Specialties
           </p>
           <h2
             id="services-heading"
             className="mt-2 font-serif text-2xl sm:text-4xl font-semibold tracking-tight text-[#3B2F24] text-balance"
           >
-            Comprehensive Audit, Tax, and Advisory Services
+            External Audit, Tax Advisory, Due Diligence, Liquidation &amp; Accounting
           </h2>
           <p className="mt-4 text-base text-[#5C4E40] leading-[1.65] max-w-[68ch]">
-            We deliver structured assurance and financial advisory services tailored to the regulatory obligations of commercial businesses, non-governmental organizations, financial institutions, and institutional investors.
+            We deliver structured assurance, tax advisory, due diligence audits, statutory company liquidation, and accounting services tailored to commercial enterprises, NGOs, financial institutions, and investors in Ethiopia.
           </p>
         </div>
 
-        {/* 8 Service Cards Grid */}
-        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {/* 9 Service Cards Grid (3x3 on desktop) */}
+        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((service) => {
             const IconComponent = SERVICE_ICONS[service.iconName];
             return (

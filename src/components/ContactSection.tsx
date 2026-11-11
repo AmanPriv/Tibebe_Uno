@@ -8,6 +8,7 @@ import {
   AlertCircle,
   Send,
   RotateCcw,
+  ExternalLink,
 } from 'lucide-react';
 import { FIRM_INFO, SERVICES } from '../data/firmData';
 import {
@@ -87,7 +88,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ selectedService 
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="border-b border-[#E8DCC8] bg-[#E8DCC8]/35 py-16 sm:py-24"
+      className="border-b border-[#E8DCC8] bg-[#F5EFE6] py-16 sm:py-24"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
@@ -101,7 +102,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ selectedService 
             Request a Professional Consultation
           </h2>
           <p className="mt-4 text-base text-[#5C4E40] leading-[1.65] max-w-[65ch]">
-            Discuss your upcoming statutory audit, donor grant attestation, tax compliance review, or advisory requirement directly with a senior partner. All inquiries are treated with strict confidentiality.
+            Discuss your upcoming external audit, donor grant attestation, tax advisory, due diligence audit, company liquidation, or accounting requirement directly with our Owner &amp; Principal. All inquiries are treated with strict confidentiality.
           </p>
         </div>
 
@@ -122,7 +123,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ selectedService 
                   Consultation Request Received
                 </h3>
                 <p className="mt-2 text-sm sm:text-base text-[#5C4E40] leading-relaxed">
-                  Thank you, <strong className="font-medium text-[#2B2118]">{submittedRecord.data.name}</strong>. Your inquiry on behalf of <strong className="font-medium text-[#2B2118]">{submittedRecord.data.company}</strong> has been logged for partner review. We respond to all formal inquiries within one business day.
+                  Thank you, <strong className="font-medium text-[#2B2118]">{submittedRecord.data.name}</strong>. Your inquiry on behalf of <strong className="font-medium text-[#2B2118]">{submittedRecord.data.company}</strong> has been logged for review by {FIRM_INFO.principalName} ({FIRM_INFO.principalTitle}). We respond to all formal inquiries within one business day.
                 </p>
 
                 <dl className="mt-6 border-y border-[#E8DCC8] py-4 text-xs sm:text-sm space-y-2.5">
@@ -401,7 +402,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ selectedService 
                 Office &amp; Direct Contact
               </h3>
               <p className="mt-1 text-xs text-[#5C4E40]">
-                Replace bracketed placeholders below with final verified office details.
+                Direct chambers contact information and consultation hours.
               </p>
 
               <dl className="mt-6 space-y-5 text-sm">
@@ -410,7 +411,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ selectedService 
                   <div>
                     <dt className="font-semibold text-[#2B2118]">Office Address</dt>
                     <dd className="mt-1 text-[#5C4E40] leading-relaxed">
-                      {FIRM_INFO.addressPlaceholder}
+                      <a
+                        href={FIRM_INFO.mapUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="cursor-pointer hover:text-[#2B2118] hover:underline underline-offset-4 transition-colors duration-150"
+                      >
+                        {FIRM_INFO.addressPlaceholder}
+                      </a>
                     </dd>
                   </div>
                 </div>
@@ -420,8 +428,12 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ selectedService 
                   <div>
                     <dt className="font-semibold text-[#2B2118]">Telephone</dt>
                     <dd className="mt-1 text-[#5C4E40] tabular-nums">
-                      <div>{FIRM_INFO.phonePlaceholder}</div>
-                      <div className="mt-0.5">{FIRM_INFO.secondaryPhonePlaceholder}</div>
+                      <a
+                        href="tel:+251911516027"
+                        className="cursor-pointer hover:text-[#2B2118] hover:underline underline-offset-4 transition-colors duration-150"
+                      >
+                        {FIRM_INFO.phonePlaceholder}
+                      </a>
                     </dd>
                   </div>
                 </div>
@@ -431,7 +443,12 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ selectedService 
                   <div>
                     <dt className="font-semibold text-[#2B2118]">Electronic Mail</dt>
                     <dd className="mt-1 text-[#5C4E40] break-all">
-                      {FIRM_INFO.emailPlaceholder}
+                      <a
+                        href={`mailto:${FIRM_INFO.emailPlaceholder}`}
+                        className="cursor-pointer hover:text-[#2B2118] hover:underline underline-offset-4 transition-colors duration-150"
+                      >
+                        {FIRM_INFO.emailPlaceholder}
+                      </a>
                     </dd>
                   </div>
                 </div>
@@ -448,24 +465,40 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ selectedService 
               </dl>
             </div>
 
-            {/* Clean Architectural Map Placeholder (Single Elevation) */}
+            {/* Interactive Office Location Map & Google Maps Link */}
             <div
               role="region"
-              aria-label="Office Location Map Placeholder"
-              className="relative overflow-hidden rounded-lg border border-[#E8DCC8] bg-[#FBF8F3] p-6 sm:p-8 shadow-xs flex flex-col items-center justify-center text-center min-h-[200px]"
+              aria-label="Office Location Map"
+              className="overflow-hidden rounded-lg border border-[#E8DCC8] bg-[#FBF8F3] shadow-xs"
             >
-              <div className="flex h-10 w-10 items-center justify-center rounded-md border border-[#E8DCC8] bg-[#F5EFE6] text-[#6F5430]">
-                <MapPin className="h-5 w-5" aria-hidden="true" />
+              <div className="relative h-56 w-full bg-[#E8DCC8]/40">
+                <iframe
+                  title={`${FIRM_INFO.name} Office Location — Bole, Abyssinia Plaza`}
+                  src={FIRM_INFO.mapEmbedUrl}
+                  className="h-full w-full border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
               </div>
-              <p className="mt-3.5 font-serif text-base font-semibold text-[#2B2118]">
-                {FIRM_INFO.name} — Practice Chambers
-              </p>
-              <p className="mt-1.5 text-xs text-[#5C4E40] max-w-xs leading-relaxed">
-                {FIRM_INFO.mapCoordinatesPlaceholder}
-              </p>
-              <p className="mt-3 text-xs text-[#2F4A3A] font-medium">
-                In-person consultations available by prior appointment
-              </p>
+              <div className="border-t border-[#E8DCC8] p-5 sm:px-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                <div>
+                  <p className="font-serif text-sm font-semibold text-[#2B2118]">
+                    {FIRM_INFO.name} — Practice Chambers
+                  </p>
+                  <p className="mt-0.5 text-xs text-[#5C4E40]">
+                    {FIRM_INFO.mapCoordinatesPlaceholder}
+                  </p>
+                </div>
+                <a
+                  href={FIRM_INFO.mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 cursor-pointer whitespace-nowrap shrink-0 text-xs font-semibold text-[#6F5430] hover:text-[#2B2118] transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B2F24]"
+                >
+                  <span>Open in Google Maps</span>
+                  <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                </a>
+              </div>
             </div>
           </div>
         </div>

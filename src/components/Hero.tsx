@@ -36,7 +36,7 @@ export const Hero: React.FC<HeroProps> = ({ onRequestConsultation }) => {
               </h1>
 
               <p className="mt-6 text-base sm:text-lg text-[#5C4E40] leading-[1.65] max-w-[65ch]">
-                {FIRM_INFO.name} provides statutory audit, internal risk review, IFRS reporting, and strategic tax compliance for enterprises, non-governmental organizations, financial institutions, and investors seeking dependable financial clarity.
+                Led by <strong className="font-medium text-[#2B2118]">{FIRM_INFO.principalName}</strong> ({FIRM_INFO.principalTitle}), {FIRM_INFO.name} delivers independent external audit, tax advisory, due diligence audit, company liquidation, and accounting services for businesses, NGOs, banks, and investors.
               </p>
 
               {/* Action Buttons */}
@@ -66,10 +66,10 @@ export const Hero: React.FC<HeroProps> = ({ onRequestConsultation }) => {
                   <ShieldCheck className="h-5 w-5 text-[#2F4A3A] shrink-0 mt-0.5" aria-hidden="true" />
                   <div>
                     <dt className="text-sm font-semibold text-[#2B2118]">
-                      Authorized Chartered Accountants
+                      FCCA (UK) &amp; Authorized Auditors
                     </dt>
                     <dd className="mt-0.5 text-xs text-[#5C4E40] leading-relaxed">
-                      Licensed statutory practice compliant with ISA &amp; IFRS standards
+                      Chartered Certified Accountants (UK) &amp; Authorized Auditors in Ethiopia
                     </dd>
                   </div>
                 </div>
@@ -81,7 +81,7 @@ export const Hero: React.FC<HeroProps> = ({ onRequestConsultation }) => {
                       Independent &amp; Objective
                     </dt>
                     <dd className="mt-0.5 text-xs text-[#5C4E40] leading-relaxed">
-                      Partner-led attestations trusted by boards, banks, and donors
+                      Principal-led attestations trusted by boards, banks, and donors
                     </dd>
                   </div>
                 </div>
@@ -93,7 +93,7 @@ export const Hero: React.FC<HeroProps> = ({ onRequestConsultation }) => {
                       Strict Confidentiality
                     </dt>
                     <dd className="mt-0.5 text-xs text-[#5C4E40] leading-relaxed">
-                      Disciplined custody of commercial, tax, and payroll records
+                      Disciplined custody of commercial, tax, liquidation, and payroll records
                     </dd>
                   </div>
                 </div>
@@ -132,7 +132,7 @@ export const Hero: React.FC<HeroProps> = ({ onRequestConsultation }) => {
                   “Clarity. Integrity. Assurance.”
                 </p>
                 <p className="mt-2 text-xs sm:text-sm text-[#5C4E40] leading-relaxed">
-                  Every audit and advisory engagement is supervised directly by an authorized partner, ensuring technical accuracy and timely delivery for stakeholders.
+                  Every external audit, tax advisory, due diligence, and company liquidation engagement is supervised directly by {FIRM_INFO.principalName}, {FIRM_INFO.principalTitle}.
                 </p>
                 <div className="mt-4 pt-4 border-t border-[#E8DCC8] flex flex-wrap items-center justify-between gap-2 text-xs text-[#5C4E40] tabular-nums">
                   <span>Standards: ISA · IFRS · IPSAS</span>

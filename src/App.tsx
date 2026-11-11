@@ -6,7 +6,6 @@ import { AboutSection } from './components/AboutSection';
 import { ProcessSection } from './components/ProcessSection';
 import { IndustriesSection } from './components/IndustriesSection';
 import { TeamSection } from './components/TeamSection';
-import { TestimonialsSection } from './components/TestimonialsSection';
 import { FaqSection } from './components/FaqSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
@@ -43,7 +42,6 @@ export default function App() {
         <ProcessSection />
         <IndustriesSection />
         <TeamSection />
-        <TestimonialsSection />
         <FaqSection />
         <ContactSection selectedService={selectedService} />
       </main>

@@ -25,7 +25,7 @@ export const FaqSection: React.FC = () => {
     <section
       id="faq"
       aria-labelledby="faq-heading"
-      className="border-b border-[#E8DCC8] bg-[#F5EFE6] py-16 sm:py-24"
+      className="border-b border-[#E8DCC8] bg-[#E8DCC8]/35 py-16 sm:py-24"
     >
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
