@@ -78,3 +78,9 @@ export function formatInquiryReference(company: string, serviceNeeded: string): 
       .slice(0, 3) || 'GEN';
   return `TMC-2026-${cleanService}-${cleanCompany}`;
 }
+
+export function shouldShowBackToTop(scrollY: number, heroHeight: number = 560): boolean {
+  const threshold = heroHeight > 0 ? heroHeight : 560;
+  return scrollY > threshold;
+}
+

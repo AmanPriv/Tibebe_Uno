@@ -28,15 +28,15 @@ export const AboutSection: React.FC = () => {
                 Established in <strong className="font-medium text-[#2B2118]">{FIRM_INFO.yearEstablishedPlaceholder}</strong> in {FIRM_INFO.jurisdictionPlaceholder} and led by <strong className="font-medium text-[#2B2118]">{FIRM_INFO.principalName}</strong> ({FIRM_INFO.principalTitle}), <strong className="font-medium text-[#2B2118]">{FIRM_INFO.name}</strong> provides corporate boards, non-governmental organizations, financial institutions, and investors with independent, technically rigorous assurance.
               </p>
               <p>
-                As <strong className="font-medium text-[#2B2118]">{FIRM_INFO.descriptor}</strong> registered under <strong className="font-medium text-[#2B2118]">{FIRM_INFO.regulatoryLicensePlaceholder}</strong>, we have supported <strong className="font-medium text-[#2B2118]">{FIRM_INFO.clientCountPlaceholder}</strong> organizations across commercial and development sectors.
+                As <strong className="font-medium text-[#2B2118]">{FIRM_INFO.descriptor}</strong>, we have supported <strong className="font-medium text-[#2B2118] lowercase">{FIRM_INFO.clientCountPlaceholder}</strong> organizations across commercial and development sectors.
               </p>
               <p>
                 Our core practice specialties encompass <strong className="font-medium text-[#2B2118]">external audit, tax advisory, due diligence audit, company liquidation, and accounting services</strong>—combining international FCCA (UK) technical standards with deep mastery of Ethiopian commercial and tax law.
               </p>
             </div>
 
-            {/* Key Practice Facts (Using Explicit Placeholders as Requested) */}
-            <dl className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3 pt-8 border-t border-[#E8DCC8]">
+            {/* Key Practice Facts */}
+            <dl className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 pt-8 border-t border-[#E8DCC8]">
               <div className="rounded-md border border-[#E8DCC8] bg-[#FBF8F3] p-4">
                 <dt className="text-xs text-[#5C4E40]">Established</dt>
                 <dd className="mt-1 font-serif text-lg font-semibold text-[#2B2118] tabular-nums">
@@ -47,12 +47,6 @@ export const AboutSection: React.FC = () => {
                 <dt className="text-xs text-[#5C4E40]">Organizations Served</dt>
                 <dd className="mt-1 font-serif text-lg font-semibold text-[#2B2118] tabular-nums">
                   {FIRM_INFO.clientCountPlaceholder}
-                </dd>
-              </div>
-              <div className="rounded-md border border-[#E8DCC8] bg-[#FBF8F3] p-4">
-                <dt className="text-xs text-[#5C4E40]">Practice License</dt>
-                <dd className="mt-1 font-serif text-sm font-semibold text-[#2B2118]">
-                  {FIRM_INFO.regulatoryLicensePlaceholder}
                 </dd>
               </div>
             </dl>

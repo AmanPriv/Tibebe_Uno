@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowRight, ShieldCheck, CheckCircle2, Lock } from 'lucide-react';
 import { FIRM_INFO } from '../data/firmData';
+import heroBoardroomImage from '../assets/images/hero_editorial_architecture_1794418658146.jpg';
 
 interface HeroProps {
   onRequestConsultation: () => void;
@@ -107,7 +108,7 @@ export const Hero: React.FC<HeroProps> = ({ onRequestConsultation }) => {
               <div className="relative w-full flex-1 min-h-[260px] sm:min-h-[320px] overflow-hidden bg-[#E8DCC8]/50">
                 {!imageFailed ? (
                   <img
-                    src="/src/assets/images/hero_editorial_architecture_1794418658146.jpg"
+                    src={heroBoardroomImage}
                     alt="Warm minimalist executive boardroom of Tibebe Mengistu & Co. featuring bound financial ledgers on an oak table"
                     referrerPolicy="no-referrer"
                     onError={() => setImageFailed(true)}
@@ -137,7 +138,7 @@ export const Hero: React.FC<HeroProps> = ({ onRequestConsultation }) => {
                 <div className="mt-4 pt-4 border-t border-[#E8DCC8] flex flex-wrap items-center justify-between gap-2 text-xs text-[#5C4E40] tabular-nums">
                   <span>Standards: ISA · IFRS · IPSAS</span>
                   <span aria-hidden="true">·</span>
-                  <span>Reg. {FIRM_INFO.regulatoryLicensePlaceholder}</span>
+                  <span>Established {FIRM_INFO.yearEstablishedPlaceholder}</span>
                 </div>
               </div>
             </div>

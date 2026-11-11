@@ -1,7 +1,18 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { validateConsultationForm, formatInquiryReference } from './validation';
+import {
+  validateConsultationForm,
+  formatInquiryReference,
+  shouldShowBackToTop,
+} from './validation';
 import { FIRM_INFO, SERVICES, CORE_VALUES, PROCESS_STEPS, INDUSTRIES, TEAM_MEMBERS, FAQ_ITEMS } from '../data/firmData';
+
+test('shouldShowBackToTop returns false within hero section and true after scrolling past hero', () => {
+  assert.equal(shouldShowBackToTop(0, 620), false);
+  assert.equal(shouldShowBackToTop(620, 620), false);
+  assert.equal(shouldShowBackToTop(621, 620), true);
+  assert.equal(shouldShowBackToTop(700, 0), true);
+});
 
 test('validateConsultationForm rejects empty fields with clear messages', () => {
   const result = validateConsultationForm({
@@ -67,6 +78,8 @@ test('firmData satisfies all structural requirements and updated credentials', (
   assert.equal(TEAM_MEMBERS.length, 1);
   assert.equal(TEAM_MEMBERS[0].namePlaceholder, 'Tibebe Mengistu, BA, FCCA');
   assert.equal(TEAM_MEMBERS[0].titlePlaceholder, 'Owner & Principal');
+  assert.equal(FIRM_INFO.yearEstablishedPlaceholder, 'May 2011');
+  assert.equal(FIRM_INFO.clientCountPlaceholder, 'Countless');
   assert.ok(FIRM_INFO.addressPlaceholder.includes('Bole, Abyssinia Plaza, 6th Floor'));
   assert.equal(FIRM_INFO.phonePlaceholder, '+251 911 516 027');
   assert.equal(FIRM_INFO.emailPlaceholder, 'Tibebe@Tibebemengistu.com');

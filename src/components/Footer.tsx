@@ -35,7 +35,7 @@ export const Footer: React.FC = () => {
             </p>
 
             <p className="mt-4 text-xs text-[#5C4E40]">
-              Practice Registration: {FIRM_INFO.regulatoryLicensePlaceholder}
+              Established {FIRM_INFO.yearEstablishedPlaceholder} · {FIRM_INFO.jurisdictionPlaceholder}
             </p>
           </div>
 

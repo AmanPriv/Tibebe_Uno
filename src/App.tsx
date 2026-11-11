@@ -9,6 +9,7 @@ import { TeamSection } from './components/TeamSection';
 import { FaqSection } from './components/FaqSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
+import { BackToTopButton } from './components/BackToTopButton';
 
 export default function App() {
   const [selectedService, setSelectedService] = useState<string>('');
@@ -47,6 +48,7 @@ export default function App() {
       </main>
 
       <Footer />
+      <BackToTopButton />
     </div>
   );
 }
