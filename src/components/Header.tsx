@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { FIRM_INFO } from '../data/firmData';
+import { MonogramIcon } from './MonogramIcon';
 
 interface HeaderProps {
   onNavigateToContact: () => void;
@@ -48,16 +49,22 @@ export const Header: React.FC<HeaderProps> = ({ onNavigateToContact }) => {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 sm:gap-8 px-4 py-3.5 sm:px-6 lg:px-8">
-        {/* Zone 1: Brand Wordmark + Descriptor */}
+        {/* Zone 1: Brand Monogram + Wordmark + Descriptor */}
         <a
           href="#top"
-          className="group flex flex-col cursor-pointer min-w-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#3B2F24]"
+          className="group flex items-center gap-3 cursor-pointer min-w-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#3B2F24]"
         >
-          <span className="font-serif text-lg sm:text-xl font-semibold tracking-tight text-[#2B2118] group-hover:text-[#3B2F24] transition-colors duration-200 whitespace-nowrap">
-            {FIRM_INFO.name}
-          </span>
-          <span className="text-[10.5px] sm:text-[11px] font-medium tracking-wide text-[#5C4E40] leading-snug">
-            {FIRM_INFO.descriptor}
+          <MonogramIcon
+            variant="dark"
+            className="h-9 w-9 sm:h-10 sm:w-10 shrink-0 rounded-lg shadow-2xs"
+          />
+          <span className="flex flex-col min-w-0">
+            <span className="font-serif text-lg sm:text-xl font-semibold tracking-tight text-[#2B2118] group-hover:text-[#3B2F24] transition-colors duration-200 whitespace-nowrap">
+              {FIRM_INFO.name}
+            </span>
+            <span className="text-[10.5px] sm:text-[11px] font-medium tracking-wide text-[#5C4E40] leading-snug">
+              {FIRM_INFO.descriptor}
+            </span>
           </span>
         </a>
 

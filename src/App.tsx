@@ -10,6 +10,7 @@ import { FaqSection } from './components/FaqSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { BackToTopButton } from './components/BackToTopButton';
+import { InitialLoader } from './components/InitialLoader';
 
 export default function App() {
   const [selectedService, setSelectedService] = useState<string>('');
@@ -27,6 +28,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F5EFE6] text-[#2B2118]">
+      <InitialLoader />
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded-md focus:bg-[#2B2118] focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-[#FBF8F3]"

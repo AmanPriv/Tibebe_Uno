@@ -1,5 +1,6 @@
 import React from 'react';
 import { FIRM_INFO } from '../data/firmData';
+import { MonogramIcon } from './MonogramIcon';
 
 const QUICK_LINKS = [
   { label: 'Services', href: '#services' },
@@ -20,13 +21,19 @@ export const Footer: React.FC = () => {
           <div className="md:col-span-5">
             <a
               href="#top"
-              className="inline-block cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#3B2F24]"
+              className="group inline-flex items-center gap-3 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#3B2F24]"
             >
-              <span className="block font-serif text-xl font-semibold text-[#2B2118]">
-                {FIRM_INFO.name}
-              </span>
-              <span className="mt-0.5 block text-xs font-medium text-[#6F5430]">
-                {FIRM_INFO.descriptor}
+              <MonogramIcon
+                variant="dark"
+                className="h-10 w-10 shrink-0 rounded-lg shadow-2xs"
+              />
+              <span>
+                <span className="block font-serif text-xl font-semibold text-[#2B2118]">
+                  {FIRM_INFO.name}
+                </span>
+                <span className="mt-0.5 block text-xs font-medium text-[#6F5430]">
+                  {FIRM_INFO.descriptor}
+                </span>
               </span>
             </a>
 

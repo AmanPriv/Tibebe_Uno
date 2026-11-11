@@ -65,3 +65,121 @@ html {
 .animate-fade-up {
   animation: fadeInUp 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+/* TM Monogram Loading Animation: Letters T and M Coming Together */
+@keyframes tmConvergeLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-22px) scale(0.94);
+  }
+  65% {
+    opacity: 1;
+    transform: translateX(1.5px) scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes tmConvergeRight {
+  0% {
+    opacity: 0;
+    transform: translateX(22px) scale(0.94);
+  }
+  65% {
+    opacity: 1;
+    transform: translateX(-1.5px) scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes tmFrameDraw {
+  0% {
+    stroke-dasharray: 220;
+    stroke-dashoffset: 220;
+    opacity: 0.3;
+  }
+  100% {
+    stroke-dasharray: 220;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes tmAxisGrow {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  40% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes tmCaptionReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  35% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tmProgressSweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.tm-letter-t {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: tmConvergeLeft 0.68s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.tm-letter-m {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: tmConvergeRight 0.68s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.tm-frame-draw {
+  animation: tmFrameDraw 0.72s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.tm-axis-grow {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: tmAxisGrow 0.68s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.tm-keystone-fade {
+  animation: tmCaptionReveal 0.68s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.tm-caption-reveal {
+  animation: tmCaptionReveal 0.72s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.tm-progress-sweep {
+  animation: tmProgressSweep 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+

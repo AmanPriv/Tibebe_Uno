@@ -1,6 +1,7 @@
 import React from 'react';
 import { Award, CheckCircle2, ArrowRight } from 'lucide-react';
 import { TEAM_MEMBERS, FIRM_INFO } from '../data/firmData';
+import { MonogramIcon } from './MonogramIcon';
 
 const PRINCIPAL_SPECIALTIES = [
   {
@@ -56,12 +57,12 @@ export const TeamSection: React.FC = () => {
             {/* Left Column: Principal Identity, Credentials & Bio */}
             <div className="lg:col-span-6 flex flex-col justify-between">
               <div>
-                <div className="flex items-start sm:items-center gap-5">
-                  <div
-                    aria-hidden="true"
-                    className="flex h-16 w-16 sm:h-20 sm:w-20 shrink-0 items-center justify-center rounded-md border border-[#8A6A3B]/40 bg-[#F5EFE6] font-serif text-2xl sm:text-3xl font-semibold text-[#3B2F24]"
-                  >
-                    {principal.initials}
+                <div className="group flex items-start sm:items-center gap-5">
+                  <div className="shrink-0 rounded-xl shadow-xs">
+                    <MonogramIcon
+                      variant="dark"
+                      className="h-16 w-16 sm:h-20 sm:w-20 rounded-xl"
+                    />
                   </div>
                   <div>
                     <h3 className="font-serif text-2xl sm:text-3xl font-semibold text-[#2B2118]">
