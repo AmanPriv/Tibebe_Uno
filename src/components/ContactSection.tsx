@@ -17,6 +17,8 @@ import {
   validateConsultationForm,
   formatInquiryReference,
 } from '../utils/validation';
+import { ScrollReveal3D } from './ScrollReveal3D';
+import { Tilt3DCard } from './Tilt3DCard';
 
 interface ContactSectionProps {
   selectedService: string;
@@ -91,7 +93,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ selectedService 
       className="border-b border-[#E8DCC8] bg-[#F5EFE6] py-16 sm:py-24"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl">
+        <ScrollReveal3D className="max-w-3xl">
           <p className="text-xs sm:text-sm font-medium text-[#2F4A3A]">
             Engage With Us · Confidential Consultation
           </p>
@@ -104,7 +106,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ selectedService 
           <p className="mt-4 text-base text-[#5C4E40] leading-[1.65] max-w-[65ch]">
             Discuss your upcoming external audit, donor grant attestation, tax advisory, due diligence audit, company liquidation, or accounting requirement directly with our Owner &amp; Principal. All inquiries are treated with strict confidentiality.
           </p>
-        </div>
+        </ScrollReveal3D>
 
         <div className="mt-12 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-start">
           {/* Left Column: Consultation Form or Confirmation State */}
@@ -385,7 +387,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ selectedService 
                   </p>
                   <button
                     type="submit"
-                    className="inline-flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap shrink-0 rounded-md bg-[#8A6A3B] px-6 py-3 text-sm font-medium text-white shadow-xs hover:bg-[#6F5430] transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2B2118]"
+                    className="btn-3d-primary inline-flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap shrink-0 rounded-md bg-[#8A6A3B] px-6 py-3 text-sm font-medium text-white hover:bg-[#6F5430] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2B2118]"
                   >
                     <Send className="h-4 w-4" aria-hidden="true" />
                     <span>Submit Consultation Request</span>
@@ -397,8 +399,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ selectedService 
 
           {/* Right Column: Office Address, Phone, Email, Hours & Map Placeholder */}
           <div className="lg:col-span-5 flex flex-col gap-6">
-            <div className="rounded-lg border border-[#E8DCC8] bg-[#FBF8F3] p-6 sm:p-8 shadow-xs">
-              <h3 className="font-serif text-xl font-semibold text-[#2B2118]">
+            <Tilt3DCard maxDegrees={4.5} className="rounded-lg border border-[#E8DCC8] bg-[#FBF8F3] p-6 sm:p-8 shadow-xs">
+              <h3 className="layer-3d-lift-sm font-serif text-xl font-semibold text-[#2B2118]">
                 Office &amp; Direct Contact
               </h3>
               <p className="mt-1 text-xs text-[#5C4E40]">
@@ -463,7 +465,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ selectedService 
                   </div>
                 </div>
               </dl>
-            </div>
+            </Tilt3DCard>
 
             {/* Interactive Office Location Map & Google Maps Link */}
             <div

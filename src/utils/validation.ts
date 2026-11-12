@@ -84,3 +84,33 @@ export function shouldShowBackToTop(scrollY: number, heroHeight: number = 560): 
   return scrollY > threshold;
 }
 
+export interface CardTiltResult {
+  rotateX: number;
+  rotateY: number;
+  glowX: number;
+  glowY: number;
+}
+
+/**
+ * Computes clamped 3D perspective tilt angles (in degrees) and highlight coordinates (0-100%)
+ * from normalized pointer coordinates (0..1 within a card's bounding box).
+ */
+export function calculateCardTilt(
+  normX: number,
+  normY: number,
+  maxDegrees: number = 6.5
+): CardTiltResult {
+  const clampedX = Math.max(0, Math.min(1, normX));
+  const clampedY = Math.max(0, Math.min(1, normY));
+  const limit = Math.max(0, Math.min(8, maxDegrees));
+
+  // Center is (0.5, 0.5). Moving pointer right tilts +Y; moving pointer down tilts -X.
+  const rotateY = Number(((clampedX - 0.5) * 2 * limit).toFixed(2));
+  const rotateX = Number(((0.5 - clampedY) * 2 * limit).toFixed(2));
+  const glowX = Math.round(clampedX * 100);
+  const glowY = Math.round(clampedY * 100);
+
+  return { rotateX, rotateY, glowX, glowY };
+}
+
+

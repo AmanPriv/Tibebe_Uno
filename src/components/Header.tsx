@@ -44,8 +44,10 @@ export const Header: React.FC<HeaderProps> = ({ onNavigateToContact }) => {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full border-b border-[#E8DCC8] transition-colors duration-200 ${
-        isScrolled ? 'bg-[#FBF8F3]/95 backdrop-blur-md shadow-xs' : 'bg-[#F5EFE6]/95 backdrop-blur-xs'
+      className={`sticky top-0 z-50 w-full border-b transition-all duration-250 ${
+        isScrolled
+          ? 'border-[#8A6A3B]/25 bg-[#FBF8F3]/92 backdrop-blur-md shadow-[0_10px_28px_-10px_rgba(43,33,24,0.14),0_1px_0_0_rgba(138,106,59,0.15)]'
+          : 'border-[#E8DCC8] bg-[#F5EFE6]/95 backdrop-blur-xs'
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 sm:gap-8 px-4 py-3.5 sm:px-6 lg:px-8">
@@ -89,7 +91,7 @@ export const Header: React.FC<HeaderProps> = ({ onNavigateToContact }) => {
           <a
             href="#contact"
             onClick={() => onNavigateToContact()}
-            className="hidden sm:inline-flex items-center justify-center cursor-pointer whitespace-nowrap shrink-0 rounded-md bg-[#8A6A3B] px-4 py-2.5 text-xs sm:text-sm font-medium text-white shadow-xs hover:bg-[#6F5430] transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2B2118]"
+            className="btn-3d-primary hidden sm:inline-flex items-center justify-center cursor-pointer whitespace-nowrap shrink-0 rounded-md bg-[#8A6A3B] px-4 py-2.5 text-xs sm:text-sm font-medium text-white hover:bg-[#6F5430] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2B2118]"
           >
             Request a Consultation
           </a>
@@ -134,7 +136,7 @@ export const Header: React.FC<HeaderProps> = ({ onNavigateToContact }) => {
                 handleMobileNavClick();
                 onNavigateToContact();
               }}
-              className="flex w-full items-center justify-center cursor-pointer rounded-md bg-[#8A6A3B] px-4 py-3 text-sm font-medium text-white hover:bg-[#6F5430] transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2B2118]"
+              className="btn-3d-primary flex w-full items-center justify-center cursor-pointer rounded-md bg-[#8A6A3B] px-4 py-3 text-sm font-medium text-white hover:bg-[#6F5430] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2B2118]"
             >
               Request a Consultation
             </a>

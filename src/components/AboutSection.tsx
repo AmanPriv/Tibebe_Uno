@@ -1,18 +1,23 @@
 import React from 'react';
 import { CheckCircle2 } from 'lucide-react';
 import { CORE_VALUES, FIRM_INFO } from '../data/firmData';
+import { Tilt3DCard } from './Tilt3DCard';
+import { ScrollReveal3D } from './ScrollReveal3D';
+import { ParallaxBackdrop } from './ParallaxBackdrop';
 
 export const AboutSection: React.FC = () => {
   return (
     <section
       id="about"
       aria-labelledby="about-heading"
-      className="border-b border-[#E8DCC8] bg-[#E8DCC8]/35 py-16 sm:py-24"
+      className="relative overflow-hidden border-b border-[#E8DCC8] bg-[#E8DCC8]/35 py-16 sm:py-24"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <ParallaxBackdrop variant="sand" />
+
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-start">
-          {/* Left Column: Firm Narrative & Placeholders */}
-          <div className="lg:col-span-6">
+          {/* Left Column: Firm Narrative & Facts */}
+          <ScrollReveal3D className="lg:col-span-6">
             <p className="text-xs sm:text-sm font-medium text-[#2F4A3A]">
               About the Firm · Why Choose Us
             </p>
@@ -37,25 +42,25 @@ export const AboutSection: React.FC = () => {
 
             {/* Key Practice Facts */}
             <dl className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 pt-8 border-t border-[#E8DCC8]">
-              <div className="rounded-md border border-[#E8DCC8] bg-[#FBF8F3] p-4">
+              <Tilt3DCard maxDegrees={5} className="rounded-md border border-[#E8DCC8] bg-[#FBF8F3] p-4">
                 <dt className="text-xs text-[#5C4E40]">Established</dt>
-                <dd className="mt-1 font-serif text-lg font-semibold text-[#2B2118] tabular-nums">
+                <dd className="layer-3d-lift-sm mt-1 font-serif text-lg font-semibold text-[#2B2118] tabular-nums">
                   {FIRM_INFO.yearEstablishedPlaceholder}
                 </dd>
-              </div>
-              <div className="rounded-md border border-[#E8DCC8] bg-[#FBF8F3] p-4">
+              </Tilt3DCard>
+              <Tilt3DCard maxDegrees={5} className="rounded-md border border-[#E8DCC8] bg-[#FBF8F3] p-4">
                 <dt className="text-xs text-[#5C4E40]">Organizations Served</dt>
-                <dd className="mt-1 font-serif text-lg font-semibold text-[#2B2118] tabular-nums">
+                <dd className="layer-3d-lift-sm mt-1 font-serif text-lg font-semibold text-[#2B2118] tabular-nums">
                   {FIRM_INFO.clientCountPlaceholder}
                 </dd>
-              </div>
+              </Tilt3DCard>
             </dl>
-          </div>
+          </ScrollReveal3D>
 
           {/* Right Column: 4 Core Value Points */}
-          <div className="lg:col-span-6">
-            <div className="rounded-lg border border-[#E8DCC8] bg-[#FBF8F3] p-6 sm:p-8 shadow-xs">
-              <h3 className="font-serif text-xl sm:text-2xl font-semibold text-[#3B2F24]">
+          <ScrollReveal3D delayMs={100} className="lg:col-span-6">
+            <Tilt3DCard maxDegrees={5} className="rounded-lg border border-[#E8DCC8] bg-[#FBF8F3] p-6 sm:p-8 shadow-xs">
+              <h3 className="layer-3d-lift font-serif text-xl sm:text-2xl font-semibold text-[#3B2F24]">
                 Four Pillars of Our Practice
               </h3>
               <p className="mt-2 text-sm text-[#5C4E40] leading-relaxed">
@@ -68,7 +73,7 @@ export const AboutSection: React.FC = () => {
                     <div className="flex items-start gap-3.5">
                       <CheckCircle2 className="h-5 w-5 text-[#2F4A3A] shrink-0 mt-0.5" aria-hidden="true" />
                       <div>
-                        <h4 className="font-serif text-lg font-semibold text-[#2B2118]">
+                        <h4 className="layer-3d-lift-sm font-serif text-lg font-semibold text-[#2B2118]">
                           0{idx + 1}. {val.title}
                         </h4>
                         <p className="mt-1.5 text-sm text-[#5C4E40] leading-[1.6]">
@@ -79,10 +84,11 @@ export const AboutSection: React.FC = () => {
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
+            </Tilt3DCard>
+          </ScrollReveal3D>
         </div>
       </div>
     </section>
   );
 };
+

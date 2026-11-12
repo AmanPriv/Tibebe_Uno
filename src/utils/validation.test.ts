@@ -4,8 +4,30 @@ import {
   validateConsultationForm,
   formatInquiryReference,
   shouldShowBackToTop,
+  calculateCardTilt,
 } from './validation';
 import { FIRM_INFO, SERVICES, CORE_VALUES, PROCESS_STEPS, INDUSTRIES, TEAM_MEMBERS, FAQ_ITEMS } from '../data/firmData';
+
+test('calculateCardTilt returns zero tilt at center and respects max degree bounds', () => {
+  const center = calculateCardTilt(0.5, 0.5, 6.5);
+  assert.equal(center.rotateX, 0);
+  assert.equal(center.rotateY, 0);
+  assert.equal(center.glowX, 50);
+  assert.equal(center.glowY, 50);
+
+  const topLeft = calculateCardTilt(0, 0, 6.5);
+  assert.equal(topLeft.rotateX, 6.5);
+  assert.equal(topLeft.rotateY, -6.5);
+
+  const bottomRight = calculateCardTilt(1, 1, 6.5);
+  assert.equal(bottomRight.rotateX, -6.5);
+  assert.equal(bottomRight.rotateY, 6.5);
+
+  // Clamps out-of-range coordinates and enforces <= 8 deg cap
+  const extreme = calculateCardTilt(2, -1, 12);
+  assert.equal(extreme.rotateX, 8);
+  assert.equal(extreme.rotateY, 8);
+});
 
 test('shouldShowBackToTop returns false within hero section and true after scrolling past hero', () => {
   assert.equal(shouldShowBackToTop(0, 620), false);

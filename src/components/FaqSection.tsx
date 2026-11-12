@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { FAQ_ITEMS } from '../data/firmData';
+import { ScrollReveal3D } from './ScrollReveal3D';
 
 export const FaqSection: React.FC = () => {
   const [openIds, setOpenIds] = useState<string[]>([FAQ_ITEMS[0].id]);
@@ -28,7 +29,7 @@ export const FaqSection: React.FC = () => {
       className="border-b border-[#E8DCC8] bg-[#E8DCC8]/35 py-16 sm:py-24"
     >
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+        <ScrollReveal3D className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
           <div className="max-w-2xl">
             <p className="text-xs sm:text-sm font-medium text-[#6F5430]">
               Frequently Asked Questions
@@ -47,14 +48,14 @@ export const FaqSection: React.FC = () => {
           <button
             type="button"
             onClick={handleToggleAll}
-            className="self-start sm:self-auto cursor-pointer whitespace-nowrap shrink-0 rounded-md border border-[#E8DCC8] bg-[#FBF8F3] px-3.5 py-2 text-xs font-medium text-[#2B2118] hover:bg-[#E8DCC8]/50 transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B2F24]"
+            className="btn-3d-secondary self-start sm:self-auto cursor-pointer whitespace-nowrap shrink-0 rounded-md border border-[#E8DCC8] bg-[#FBF8F3] px-3.5 py-2 text-xs font-medium text-[#2B2118] hover:bg-[#E8DCC8]/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B2F24]"
           >
             {allExpanded ? 'Collapse All Questions' : 'Expand All Questions'}
           </button>
-        </div>
+        </ScrollReveal3D>
 
         {/* Accessible 6-Item Accordion */}
-        <div className="mt-10 divide-y divide-[#E8DCC8] rounded-lg border border-[#E8DCC8] bg-[#FBF8F3] shadow-xs">
+        <ScrollReveal3D delayMs={80} className="mt-10 divide-y divide-[#E8DCC8] rounded-lg border border-[#E8DCC8] bg-[#FBF8F3] shadow-xs">
           {FAQ_ITEMS.map((item, idx) => {
             const isOpen = openIds.includes(item.id);
             const panelId = `${item.id}-panel`;
@@ -104,7 +105,7 @@ export const FaqSection: React.FC = () => {
               </div>
             );
           })}
-        </div>
+        </ScrollReveal3D>
       </div>
     </section>
   );

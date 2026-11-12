@@ -1,22 +1,41 @@
-import React, { useState } from 'react';
+import React, { Suspense } from 'react';
 import { ArrowRight, ShieldCheck, CheckCircle2, Lock } from 'lucide-react';
 import { FIRM_INFO } from '../data/firmData';
-import heroBoardroomImage from '../assets/images/hero_editorial_architecture_1794418658146.jpg';
+import { ParallaxBackdrop } from './ParallaxBackdrop';
+
+const HeroAssuranceScene = React.lazy(() => import('./HeroAssuranceScene'));
 
 interface HeroProps {
   onRequestConsultation: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onRequestConsultation }) => {
-  const [imageFailed, setImageFailed] = useState(false);
+const HeroSceneFallback: React.FC = () => (
+  <div
+    aria-hidden="true"
+    className="flex h-full w-full min-h-[280px] sm:min-h-[340px] flex-col items-center justify-center bg-gradient-to-b from-[#FBF8F3] via-[#F5EFE6] to-[#E8DCC8]/65 p-8 text-center"
+  >
+    <div className="relative flex h-20 w-20 items-center justify-center rounded-full border border-[#8A6A3B]/35 bg-[#FBF8F3] shadow-xs">
+      <ShieldCheck className="h-9 w-9 text-[#8A6A3B]" aria-hidden="true" />
+    </div>
+    <p className="mt-4 font-serif text-base font-medium text-[#3B2F24]">
+      {FIRM_INFO.name}
+    </p>
+    <p className="mt-1 text-xs text-[#5C4E40]">
+      {FIRM_INFO.descriptor}
+    </p>
+  </div>
+);
 
+export const Hero: React.FC<HeroProps> = ({ onRequestConsultation }) => {
   return (
     <section
       id="top"
       aria-labelledby="hero-heading"
       className="relative overflow-hidden border-b border-[#E8DCC8] bg-[#F5EFE6] pt-10 pb-16 sm:pt-16 sm:pb-24 lg:pt-20 lg:pb-28"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <ParallaxBackdrop variant="sand" />
+
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-stretch lg:gap-12">
           {/* Left Column: Editorial Value Proposition */}
           <div className="flex flex-col justify-between lg:col-span-7 animate-fade-up">
@@ -45,7 +64,7 @@ export const Hero: React.FC<HeroProps> = ({ onRequestConsultation }) => {
                 <a
                   href="#contact"
                   onClick={onRequestConsultation}
-                  className="inline-flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap shrink-0 rounded-md bg-[#8A6A3B] px-6 py-3.5 text-sm sm:text-base font-medium text-white shadow-xs hover:bg-[#6F5430] transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2B2118]"
+                  className="btn-3d-primary inline-flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap shrink-0 rounded-md bg-[#8A6A3B] px-6 py-3.5 text-sm sm:text-base font-medium text-white hover:bg-[#6F5430] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2B2118]"
                 >
                   <span>Request a Consultation</span>
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -53,7 +72,7 @@ export const Hero: React.FC<HeroProps> = ({ onRequestConsultation }) => {
 
                 <a
                   href="#services"
-                  className="inline-flex items-center justify-center cursor-pointer whitespace-nowrap shrink-0 rounded-md border border-[#8A6A3B]/40 bg-[#FBF8F3] px-6 py-3.5 text-sm sm:text-base font-medium text-[#2B2118] hover:bg-[#E8DCC8]/60 hover:border-[#8A6A3B] transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B2F24]"
+                  className="btn-3d-secondary inline-flex items-center justify-center cursor-pointer whitespace-nowrap shrink-0 rounded-md border border-[#8A6A3B]/40 bg-[#FBF8F3] px-6 py-3.5 text-sm sm:text-base font-medium text-[#2B2118] hover:bg-[#E8DCC8]/60 hover:border-[#8A6A3B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B2F24]"
                 >
                   Our Services
                 </a>
@@ -102,29 +121,16 @@ export const Hero: React.FC<HeroProps> = ({ onRequestConsultation }) => {
             </div>
           </div>
 
-          {/* Right Column: Editorial Architectural Visual & Standards Ledger */}
+          {/* Right Column: Interactive 3D Financial Assurance Sculpture & Standards Ledger */}
           <div className="lg:col-span-5 flex flex-col">
-            <div className="relative flex-1 overflow-hidden rounded-lg border border-[#E8DCC8] bg-[#FBF8F3] shadow-xs flex flex-col">
-              <div className="relative w-full flex-1 min-h-[260px] sm:min-h-[320px] overflow-hidden bg-[#E8DCC8]/50">
-                {!imageFailed ? (
-                  <img
-                    src={heroBoardroomImage}
-                    alt="Warm minimalist executive boardroom of Tibebe Mengistu & Co. featuring bound financial ledgers on an oak table"
-                    referrerPolicy="no-referrer"
-                    onError={() => setImageFailed(true)}
-                    className="h-full w-full object-cover"
-                  />
-                ) : (
-                  <div className="flex h-full w-full flex-col items-center justify-center bg-[#E8DCC8]/40 p-8 text-center">
-                    <ShieldCheck className="h-10 w-10 text-[#6F5430] mb-3" aria-hidden="true" />
-                    <p className="font-serif text-lg font-medium text-[#2B2118]">
-                      {FIRM_INFO.name}
-                    </p>
-                    <p className="mt-1 text-xs text-[#5C4E40]">
-                      {FIRM_INFO.descriptor}
-                    </p>
-                  </div>
-                )}
+            <div className="relative flex-1 overflow-hidden rounded-lg border border-[#E8DCC8] bg-[#FBF8F3] shadow-[0_14px_34px_-12px_rgba(43,33,24,0.12)] flex flex-col">
+              <div
+                aria-hidden="true"
+                className="relative w-full flex-1 min-h-[280px] sm:min-h-[340px] overflow-hidden bg-gradient-to-b from-[#FBF8F3] via-[#F5EFE6] to-[#E8DCC8]/55"
+              >
+                <Suspense fallback={<HeroSceneFallback />}>
+                  <HeroAssuranceScene />
+                </Suspense>
               </div>
 
               {/* Editorial Standards & Practice Summary Footer inside Card */}
@@ -148,3 +154,4 @@ export const Hero: React.FC<HeroProps> = ({ onRequestConsultation }) => {
     </section>
   );
 };
+
