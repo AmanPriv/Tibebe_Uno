@@ -98,13 +98,25 @@ export const Footer: React.FC = () => {
               </div>
               <div>
                 <dt className="sr-only">Phone</dt>
-                <dd className="tabular-nums">
-                  <a
-                    href="tel:+251911516027"
-                    className="cursor-pointer hover:text-[#1F1B18] hover:underline underline-offset-4 transition-colors duration-150"
-                  >
-                    {FIRM_INFO.phonePlaceholder}
-                  </a>
+                <dd className="space-y-1 tabular-nums">
+                  <div>
+                    <span className="text-xs text-[#5E5650]">Mobile: </span>
+                    <a
+                      href="tel:+251911516027"
+                      className="cursor-pointer hover:text-[#1F1B18] hover:underline underline-offset-4 transition-colors duration-150"
+                    >
+                      {FIRM_INFO.phonePlaceholder}
+                    </a>
+                  </div>
+                  <div>
+                    <span className="text-xs text-[#5E5650]">Office: </span>
+                    <a
+                      href="tel:+251116612005"
+                      className="cursor-pointer hover:text-[#1F1B18] hover:underline underline-offset-4 transition-colors duration-150"
+                    >
+                      {FIRM_INFO.officePhonePlaceholder}
+                    </a>
+                  </div>
                 </dd>
               </div>
               <div>

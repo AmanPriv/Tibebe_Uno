@@ -83,6 +83,7 @@ export const FIRM_INFO = {
   jurisdictionPlaceholder: 'Addis Ababa, Ethiopia',
   addressPlaceholder: 'Bole, Abyssinia Plaza, 6th Floor, Addis Ababa, Ethiopia',
   phonePlaceholder: '+251 911 516 027',
+  officePhonePlaceholder: '+251-116-612-005',
   emailPlaceholder: 'Tibebe@Tibebemengistu.com',
   hoursPlaceholder: 'Monday – Friday: 8:00 AM – 5:00 PM',
   mapCoordinatesPlaceholder: 'Bole, Abyssinia Plaza, 6th Floor · Addis Ababa, Ethiopia',

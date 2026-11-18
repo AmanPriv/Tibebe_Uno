@@ -860,14 +860,26 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ selectedService 
                 <div className="flex items-start gap-3.5">
                   <Phone className="h-5 w-5 text-[#9E7B4F] shrink-0 mt-0.5" aria-hidden="true" />
                   <div>
-                    <dt className="font-semibold text-[#1F1B18]">Telephone</dt>
-                    <dd className="mt-1 text-[#5E5650] tabular-nums">
-                      <a
-                        href="tel:+251911516027"
-                        className="cursor-pointer hover:text-[#1F1B18] hover:underline underline-offset-4 transition-colors duration-150"
-                      >
-                        {FIRM_INFO.phonePlaceholder}
-                      </a>
+                    <dt className="font-semibold text-[#1F1B18]">Telephone &amp; Office</dt>
+                    <dd className="mt-1 space-y-1 text-[#5E5650] tabular-nums">
+                      <div>
+                        <span className="text-xs font-medium text-[#5E5650]">Mobile: </span>
+                        <a
+                          href="tel:+251911516027"
+                          className="cursor-pointer hover:text-[#1F1B18] hover:underline underline-offset-4 transition-colors duration-150"
+                        >
+                          {FIRM_INFO.phonePlaceholder}
+                        </a>
+                      </div>
+                      <div>
+                        <span className="text-xs font-medium text-[#5E5650]">Office: </span>
+                        <a
+                          href="tel:+251116612005"
+                          className="cursor-pointer hover:text-[#1F1B18] hover:underline underline-offset-4 transition-colors duration-150"
+                        >
+                          {FIRM_INFO.officePhonePlaceholder}
+                        </a>
+                      </div>
                     </dd>
                   </div>
                 </div>

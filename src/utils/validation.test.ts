@@ -163,6 +163,7 @@ test('firmData satisfies all structural requirements and updated credentials', (
   assert.equal(FIRM_INFO.clientCountPlaceholder, 'Countless');
   assert.ok(FIRM_INFO.addressPlaceholder.includes('Bole, Abyssinia Plaza, 6th Floor'));
   assert.equal(FIRM_INFO.phonePlaceholder, '+251 911 516 027');
+  assert.equal(FIRM_INFO.officePhonePlaceholder, '+251-116-612-005');
   assert.equal(FIRM_INFO.emailPlaceholder, 'Tibebe@Tibebemengistu.com');
   assert.equal(FIRM_INFO.hoursPlaceholder, 'Monday – Friday: 8:00 AM – 5:00 PM');
   assert.equal(FIRM_INFO.mapUrl, 'https://maps.app.goo.gl/TmEpxF8mNhRVDahY7');
