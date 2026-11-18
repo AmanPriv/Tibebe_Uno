@@ -1,10 +1,7 @@
-import React from 'react';
-import { Award, CheckCircle2, ArrowRight } from 'lucide-react';
+import React, { useCallback } from 'react';
+import { Award, CheckCircle2, ArrowRight, ShieldCheck } from 'lucide-react';
 import { TEAM_MEMBERS, FIRM_INFO } from '../data/firmData';
 import { MonogramIcon } from './MonogramIcon';
-import { Tilt3DCard } from './Tilt3DCard';
-import { ScrollReveal3D } from './ScrollReveal3D';
-import { ParallaxBackdrop } from './ParallaxBackdrop';
 
 const PRINCIPAL_SPECIALTIES = [
   {
@@ -32,134 +29,182 @@ const PRINCIPAL_SPECIALTIES = [
 export const TeamSection: React.FC = () => {
   const principal = TEAM_MEMBERS[0];
 
+  const attachPortraitComments = useCallback((node: HTMLElement | null) => {
+    if (!node || !node.parentNode) return;
+    const prev = node.previousSibling;
+    if (
+      prev &&
+      prev.nodeType === Node.COMMENT_NODE &&
+      prev.nodeValue?.includes('REPLACE WITH: Principal Portrait Photo')
+    ) {
+      return;
+    }
+    const c1 = document.createComment(' PRINCIPAL PORTRAIT ');
+    const c2 = document.createComment(' REPLACE WITH: Principal Portrait Photo ');
+    node.parentNode.insertBefore(c1, node);
+    node.parentNode.insertBefore(c2, node);
+  }, []);
+
   return (
     <section
       id="team"
       aria-labelledby="team-heading"
-      className="relative overflow-hidden border-b border-[#E8DCC8] bg-[#F5EFE6] py-16 sm:py-24"
+      className="section-veil-alabaster border-b border-[#1F1B18]/[0.08] py-16 sm:py-24"
     >
-      <ParallaxBackdrop variant="bronze" />
-
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <ScrollReveal3D className="max-w-3xl">
-          <p className="text-xs sm:text-sm font-medium text-[#6F5430]">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl">
+          <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.12em] text-[#1D3B2F]">
             Principal Leadership &amp; Supervision
           </p>
           <h2
             id="team-heading"
-            className="mt-2 font-serif text-2xl sm:text-4xl font-semibold tracking-tight text-[#3B2F24] text-balance"
+            className="mt-2.5 font-serif text-2xl sm:text-4xl font-semibold tracking-tight text-[#1F1B18] leading-[1.18] text-balance"
           >
             Principal-Led Assurance &amp; Advisory
           </h2>
-          <p className="mt-4 text-base text-[#5C4E40] leading-[1.65] max-w-[65ch]">
+          <p className="mt-4 text-base text-[#5E5650] leading-[1.65] max-w-[65ch]">
             Every engagement at {FIRM_INFO.name} is directly supervised by the firm’s Owner &amp; Principal, ensuring consistent technical rigor, personal accountability, and direct senior counsel.
           </p>
-        </ScrollReveal3D>
+        </div>
 
-        {/* Distinguished Principal Profile Card with 3D Tilt & Layered Depth */}
-        <ScrollReveal3D delayMs={80} className="mt-12">
-          <Tilt3DCard
-            as="article"
-            maxDegrees={5}
-            className="rounded-lg border border-[#E8DCC8] bg-[#FBF8F3] p-6 sm:p-10 shadow-xs hover:border-[#8A6A3B]/60"
-          >
-            <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-start">
-              {/* Left Column: Principal Identity, Credentials & Bio */}
-              <div className="lg:col-span-6 flex flex-col justify-between">
-                <div>
-                  <div className="layer-3d-lift group flex items-start sm:items-center gap-5">
-                    <div className="shrink-0 rounded-xl shadow-xs">
+        {/* Executive Principal Card with Dedicated 4:5 Portrait Frame on Left */}
+        <article className="surface-card-ivory mt-12 rounded-lg p-6 sm:p-10">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-start">
+            {/* Left Column (4 cols): Dedicated 4:5 Executive Portrait Frame */}
+            <div className="lg:col-span-4">
+              <div className="mx-auto max-w-sm lg:max-w-none overflow-hidden rounded-lg border border-[#1F1B18]/[0.08] bg-[#EAE4DA]">
+                <div
+                  style={{ aspectRatio: '4 / 5' }}
+                  className="relative w-full overflow-hidden bg-[#1F1B18]"
+                >
+                  {/* <!-- PRINCIPAL PORTRAIT --> */}
+                  {/* <!-- REPLACE WITH: Principal Portrait Photo --> */}
+                  <img
+                    ref={attachPortraitComments}
+                    src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=900&q=85"
+                    alt="Executive chambers portrait frame for Tibebe Mengistu, BA, FCCA"
+                    loading="lazy"
+                    decoding="async"
+                    className="editorial-photo h-full w-full object-cover object-center opacity-50"
+                  />
+
+                  {/* Warm Espresso Architectural Silhouette & Monogram Seal Fallback Overlay */}
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#1F1B18] via-[#1F1B18]/55 to-[#1F1B18]/30"
+                  />
+
+                  {/* Centered Architectural Monogram Crest & Silhouette */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+                    <div className="rounded-xl border border-[#9E7B4F]/45 bg-[#1F1B18]/85 p-4 backdrop-blur-xs">
                       <MonogramIcon
                         variant="dark"
-                        className="h-16 w-16 sm:h-20 sm:w-20 rounded-xl"
+                        className="h-16 w-16 sm:h-20 sm:w-20 rounded-lg"
                       />
                     </div>
-                    <div>
-                      <h3 className="font-serif text-2xl sm:text-3xl font-semibold text-[#2B2118]">
-                        {principal.namePlaceholder}
-                      </h3>
-                      <p className="mt-1 text-sm font-semibold text-[#6F5430]">
-                        {principal.titlePlaceholder} · General Manager
-                      </p>
-                      <p className="mt-0.5 text-xs text-[#5C4E40]">
-                        {FIRM_INFO.name}
-                      </p>
-                    </div>
+                    <span className="mt-4 inline-block rounded border border-[#FCFBF9]/20 bg-[#1F1B18]/75 px-3 py-1 font-mono text-[10.5px] font-medium uppercase tracking-[0.14em] text-[#F2EFE9]">
+                      Principal Chambers · FCCA (UK)
+                    </span>
                   </div>
 
-                  {/* Credentials Block */}
-                  <div className="layer-3d-lift-sm mt-6 flex items-start gap-2.5 border-y border-[#E8DCC8] py-3.5">
-                    <Award className="h-4 w-4 text-[#2F4A3A] shrink-0 mt-0.5" aria-hidden="true" />
-                    <p className="text-xs sm:text-sm font-medium text-[#2F4A3A] leading-relaxed">
-                      {principal.credentialsPlaceholder}
+                  {/* Bottom Portrait Nameplate */}
+                  <div className="absolute inset-x-0 bottom-0 border-t border-[#FCFBF9]/15 bg-[#1F1B18]/90 px-5 py-4 backdrop-blur-xs">
+                    <p className="font-serif text-lg font-semibold text-[#FCFBF9]">
+                      {principal.namePlaceholder}
+                    </p>
+                    <p className="mt-0.5 text-xs text-[#E5DEC9]">
+                      {principal.titlePlaceholder} · General Manager
                     </p>
                   </div>
+                </div>
+              </div>
+            </div>
 
-                  {/* Bio */}
-                  <p className="mt-5 text-sm sm:text-base text-[#5C4E40] leading-[1.7]">
-                    {principal.bioPlaceholder}
+            {/* Middle/Right Columns (8 cols): Principal Biography, Credentials & 5 Core Specialties */}
+            <div className="lg:col-span-8 flex flex-col justify-between">
+              <div>
+                <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-[#1F1B18]/[0.08] pb-4">
+                  <div>
+                    <h3 className="font-serif text-2xl sm:text-3xl font-semibold text-[#1F1B18]">
+                      {principal.namePlaceholder}
+                    </h3>
+                    <p className="mt-1 text-sm font-medium text-[#9E7B4F]">
+                      {principal.titlePlaceholder} · General Manager · {FIRM_INFO.name}
+                    </p>
+                  </div>
+                  <span className="rounded border border-[#1F1B18]/[0.08] bg-[#F8F6F2] px-2.5 py-1 font-mono text-xs font-medium text-[#1D3B2F] tabular-nums">
+                    Est. {FIRM_INFO.yearEstablishedPlaceholder}
+                  </span>
+                </div>
+
+                {/* Credentials Block */}
+                <div className="mt-4 flex items-start gap-2.5 rounded-md border border-[#1F1B18]/[0.08] bg-[#F8F6F2] px-4 py-3">
+                  <Award className="h-4 w-4 text-[#1D3B2F] shrink-0 mt-0.5" aria-hidden="true" />
+                  <p className="text-xs sm:text-sm font-medium text-[#1D3B2F] leading-relaxed">
+                    {principal.credentialsPlaceholder}
                   </p>
                 </div>
 
-                <div className="layer-3d-lift-sm mt-8 pt-5 border-t border-[#E8DCC8] flex flex-wrap items-center justify-between gap-4">
-                  <div className="text-xs text-[#5C4E40]">
-                    <span>Fellow Chartered Certified Accountant (UK) · </span>
-                    <strong className="font-semibold text-[#2B2118]">FCCA</strong>
+                {/* Bio */}
+                <p className="mt-4 text-sm sm:text-base text-[#5E5650] leading-[1.7]">
+                  {principal.bioPlaceholder}
+                </p>
+
+                {/* 5 Core Specialties */}
+                <div className="mt-6 pt-6 border-t border-[#1F1B18]/[0.08]">
+                  <div className="flex items-center justify-between gap-2">
+                    <h4 className="font-serif text-lg font-semibold text-[#1F1B18]">
+                      Principal Areas of Specialization
+                    </h4>
+                    <span className="inline-flex items-center gap-1.5 text-xs font-medium text-[#1D3B2F]">
+                      <ShieldCheck className="h-3.5 w-3.5" aria-hidden="true" />
+                      <span>Direct Principal Sign-Off</span>
+                    </span>
                   </div>
-                  <a
-                    href="#contact"
-                    className="inline-flex items-center gap-1.5 cursor-pointer whitespace-nowrap shrink-0 text-xs sm:text-sm font-semibold text-[#6F5430] hover:text-[#2B2118] transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B2F24]"
-                  >
-                    <span>Schedule a Consultation with the Principal</span>
-                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                  </a>
+
+                  <ul className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                    {PRINCIPAL_SPECIALTIES.map((spec) => (
+                      <li
+                        key={spec.title}
+                        className="rounded-md border border-[#1F1B18]/[0.08] bg-[#F8F6F2]/70 p-3.5"
+                      >
+                        <div className="flex items-start gap-2.5">
+                          <CheckCircle2
+                            className="h-4 w-4 text-[#1D3B2F] shrink-0 mt-0.5"
+                            aria-hidden="true"
+                          />
+                          <div>
+                            <p className="text-xs sm:text-sm font-semibold text-[#1F1B18]">
+                              {spec.title}
+                            </p>
+                            <p className="mt-0.5 text-xs text-[#5E5650] leading-relaxed">
+                              {spec.detail}
+                            </p>
+                          </div>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
 
-              {/* Right Column: 5 Core Specialties */}
-              <div className="lg:col-span-6 lg:border-l lg:border-[#E8DCC8] lg:pl-10">
-                <h4 className="layer-3d-lift-sm font-serif text-lg sm:text-xl font-semibold text-[#3B2F24]">
-                  Principal Areas of Specialization
-                </h4>
-                <p className="mt-1 text-xs sm:text-sm text-[#5C4E40]">
-                  Direct principal oversight across five core practice pillars:
-                </p>
-
-                <ul className="mt-5 divide-y divide-[#E8DCC8]">
-                  {PRINCIPAL_SPECIALTIES.map((spec, idx) => (
-                    <li
-                      key={spec.title}
-                      className={
-                        idx === 0
-                          ? 'pb-3.5'
-                          : idx === PRINCIPAL_SPECIALTIES.length - 1
-                          ? 'pt-3.5'
-                          : 'py-3.5'
-                      }
-                    >
-                      <div className="flex items-start gap-3">
-                        <CheckCircle2
-                          className="h-4 w-4 text-[#2F4A3A] shrink-0 mt-1"
-                          aria-hidden="true"
-                        />
-                        <div>
-                          <p className="text-sm font-semibold text-[#2B2118]">
-                            {spec.title}
-                          </p>
-                          <p className="mt-0.5 text-xs sm:text-sm text-[#5C4E40] leading-relaxed">
-                            {spec.detail}
-                          </p>
-                        </div>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
+              <div className="mt-6 pt-5 border-t border-[#1F1B18]/[0.08] flex flex-wrap items-center justify-between gap-4">
+                <div className="text-xs text-[#5E5650]">
+                  <span>Fellow Chartered Certified Accountant (UK) · </span>
+                  <strong className="font-semibold text-[#1F1B18]">FCCA</strong>
+                </div>
+                <a
+                  href="#contact"
+                  className="inline-flex items-center gap-1.5 cursor-pointer whitespace-nowrap shrink-0 text-xs sm:text-sm font-semibold text-[#9E7B4F] hover:text-[#1F1B18] hover:underline underline-offset-4 transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1F1B18]"
+                >
+                  <span>Schedule a Consultation with the Principal</span>
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </a>
               </div>
             </div>
-          </Tilt3DCard>
-        </ScrollReveal3D>
+          </div>
+        </article>
       </div>
     </section>
   );
 };
-

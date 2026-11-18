@@ -73,7 +73,7 @@ export interface FaqItem {
 }
 
 export const FIRM_INFO = {
-  name: 'Tibebe Mengistu & Co.',
+  name: 'Tibebe Mengistu',
   descriptor: 'Chartered Certified Accountants (UK) · Authorized Auditors (Ethiopia)',
   tagline: 'Clarity. Integrity. Assurance.',
   principalName: 'Tibebe Mengistu, BA, FCCA',
@@ -342,7 +342,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     credentialsPlaceholder:
       'BA · Fellow, Association of Chartered Certified Accountants (FCCA, UK) · Authorized Auditor (Ethiopia)',
     bioPlaceholder:
-      'Founder, Owner, and Principal (General Manager) of Tibebe Mengistu & Co. Personally leads and signs off on the firm’s external audit, tax advisory, due diligence audit, company liquidation, and accounting services engagements for commercial enterprises, financial institutions, non-governmental organizations, and investors across Ethiopia.',
+      'Founder, Owner, and Principal (General Manager) of Tibebe Mengistu. Personally leads and signs off on the firm’s external audit, tax advisory, due diligence audit, company liquidation, and accounting services engagements for commercial enterprises, financial institutions, non-governmental organizations, and investors across Ethiopia.',
     focusAreas: [
       'External Audit',
       'Tax Advisory',

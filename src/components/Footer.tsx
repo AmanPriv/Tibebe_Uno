@@ -1,4 +1,5 @@
 import React from 'react';
+import { ArrowUp } from 'lucide-react';
 import { FIRM_INFO } from '../data/firmData';
 import { MonogramIcon } from './MonogramIcon';
 
@@ -13,50 +14,61 @@ const QUICK_LINKS = [
 ];
 
 export const Footer: React.FC = () => {
+  const handleBackToTop = () => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({
+      top: 0,
+      behavior: prefersReducedMotion ? 'auto' : 'smooth',
+    });
+  };
+
   return (
-    <footer className="bg-[#FBF8F3] text-[#2B2118] border-t border-[#E8DCC8]">
+    <footer
+      id="site-footer"
+      className="bg-[#FCFBF9] text-[#1F1B18] border-t border-[#1F1B18]/[0.08]"
+    >
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
           {/* Column 1: Brand & Short Description */}
           <div className="md:col-span-5">
             <a
               href="#top"
-              className="group inline-flex items-center gap-3 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#3B2F24]"
+              className="group inline-flex items-center gap-3 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1F1B18]"
             >
               <MonogramIcon
                 variant="dark"
-                className="h-10 w-10 shrink-0 rounded-lg shadow-2xs"
+                className="h-10 w-10 shrink-0 rounded-md"
               />
               <span>
-                <span className="block font-serif text-xl font-semibold text-[#2B2118]">
+                <span className="block font-serif text-xl font-semibold text-[#1F1B18]">
                   {FIRM_INFO.name}
                 </span>
-                <span className="mt-0.5 block text-xs font-medium text-[#6F5430]">
+                <span className="mt-0.5 block text-xs font-medium text-[#9E7B4F]">
                   {FIRM_INFO.descriptor}
                 </span>
               </span>
             </a>
 
-            <p className="mt-4 text-sm text-[#5C4E40] leading-[1.65] max-w-sm">
+            <p className="mt-4 text-sm text-[#5E5650] leading-[1.65] max-w-sm">
               {FIRM_INFO.tagline} Led by {FIRM_INFO.principalName} ({FIRM_INFO.principalTitle}), providing external audit, tax advisory, due diligence audit, company liquidation, and accounting services.
             </p>
 
-            <p className="mt-4 text-xs text-[#5C4E40]">
+            <p className="mt-4 text-xs text-[#5E5650]">
               Established {FIRM_INFO.yearEstablishedPlaceholder} · {FIRM_INFO.jurisdictionPlaceholder}
             </p>
           </div>
 
           {/* Column 2: Quick Links */}
           <div className="md:col-span-3">
-            <h2 className="font-serif text-sm font-semibold text-[#3B2F24]">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.1em] text-[#1F1B18]">
               Quick Links
             </h2>
-            <ul className="mt-4 space-y-2.5 text-sm text-[#5C4E40]">
+            <ul className="mt-4 space-y-2.5 text-sm text-[#5E5650]">
               {QUICK_LINKS.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="cursor-pointer hover:text-[#2B2118] hover:underline underline-offset-4 transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B2F24]"
+                    className="cursor-pointer hover:text-[#1F1B18] hover:underline underline-offset-4 transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1F1B18]"
                   >
                     {link.label}
                   </a>
@@ -67,10 +79,10 @@ export const Footer: React.FC = () => {
 
           {/* Column 3: Contact Summary */}
           <div className="md:col-span-4">
-            <h2 className="font-serif text-sm font-semibold text-[#3B2F24]">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.1em] text-[#1F1B18]">
               Contact &amp; Chambers
             </h2>
-            <dl className="mt-4 space-y-2.5 text-sm text-[#5C4E40]">
+            <dl className="mt-4 space-y-2.5 text-sm text-[#5E5650]">
               <div>
                 <dt className="sr-only">Address</dt>
                 <dd>
@@ -78,7 +90,7 @@ export const Footer: React.FC = () => {
                     href={FIRM_INFO.mapUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="cursor-pointer hover:text-[#2B2118] hover:underline underline-offset-4 transition-colors duration-150"
+                    className="cursor-pointer hover:text-[#1F1B18] hover:underline underline-offset-4 transition-colors duration-150"
                   >
                     {FIRM_INFO.addressPlaceholder}
                   </a>
@@ -89,7 +101,7 @@ export const Footer: React.FC = () => {
                 <dd className="tabular-nums">
                   <a
                     href="tel:+251911516027"
-                    className="cursor-pointer hover:text-[#2B2118] hover:underline underline-offset-4 transition-colors duration-150"
+                    className="cursor-pointer hover:text-[#1F1B18] hover:underline underline-offset-4 transition-colors duration-150"
                   >
                     {FIRM_INFO.phonePlaceholder}
                   </a>
@@ -100,7 +112,7 @@ export const Footer: React.FC = () => {
                 <dd className="break-all">
                   <a
                     href={`mailto:${FIRM_INFO.emailPlaceholder}`}
-                    className="cursor-pointer hover:text-[#2B2118] hover:underline underline-offset-4 transition-colors duration-150"
+                    className="cursor-pointer hover:text-[#1F1B18] hover:underline underline-offset-4 transition-colors duration-150"
                   >
                     {FIRM_INFO.emailPlaceholder}
                   </a>
@@ -108,7 +120,7 @@ export const Footer: React.FC = () => {
               </div>
               <div>
                 <dt className="sr-only">Office Hours</dt>
-                <dd className="text-xs text-[#5C4E40]/90 pt-1">
+                <dd className="text-xs text-[#5E5650] pt-1">
                   {FIRM_INFO.hoursPlaceholder}
                 </dd>
               </div>
@@ -116,12 +128,21 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom Legal & Copyright Bar */}
-        <div className="mt-12 pt-8 border-t border-[#E8DCC8] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-xs text-[#5C4E40]">
-          <p>© 2026 Tibebe Mengistu &amp; Co. All rights reserved.</p>
-          <p>
-            {FIRM_INFO.descriptor}
-          </p>
+        {/* Bottom Legal & Copyright Bar with Integrated Back to Top Control (Zero Overlap) */}
+        <div className="mt-12 pt-8 border-t border-[#1F1B18]/[0.08] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-xs text-[#5E5650]">
+          <p>© 2026 {FIRM_INFO.name}. All rights reserved.</p>
+
+          <div className="flex flex-wrap items-center justify-between sm:justify-end gap-6">
+            <p>{FIRM_INFO.descriptor}</p>
+            <button
+              type="button"
+              onClick={handleBackToTop}
+              className="inline-flex items-center gap-1.5 cursor-pointer whitespace-nowrap shrink-0 rounded border border-[#1F1B18]/[0.12] bg-[#F8F6F2] px-3 py-1.5 text-xs font-medium text-[#1F1B18] hover:border-[#9E7B4F] hover:text-[#9E7B4F] transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1F1B18]"
+            >
+              <span>Back to Top</span>
+              <ArrowUp className="h-3.5 w-3.5" aria-hidden="true" />
+            </button>
+          </div>
         </div>
       </div>
     </footer>

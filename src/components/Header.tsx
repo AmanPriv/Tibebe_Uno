@@ -22,7 +22,7 @@ export const Header: React.FC<HeaderProps> = ({ onNavigateToContact }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 12);
+      setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -44,27 +44,25 @@ export const Header: React.FC<HeaderProps> = ({ onNavigateToContact }) => {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full border-b transition-all duration-250 ${
-        isScrolled
-          ? 'border-[#8A6A3B]/25 bg-[#FBF8F3]/92 backdrop-blur-md shadow-[0_10px_28px_-10px_rgba(43,33,24,0.14),0_1px_0_0_rgba(138,106,59,0.15)]'
-          : 'border-[#E8DCC8] bg-[#F5EFE6]/95 backdrop-blur-xs'
+      className={`sticky top-0 z-50 w-full border-b border-[#1F1B18]/[0.08] transition-colors duration-200 ${
+        isScrolled ? 'bg-[#FCFBF9]/95 backdrop-blur-sm' : 'bg-[#F8F6F2]/95'
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 sm:gap-8 px-4 py-3.5 sm:px-6 lg:px-8">
         {/* Zone 1: Brand Monogram + Wordmark + Descriptor */}
         <a
           href="#top"
-          className="group flex items-center gap-3 cursor-pointer min-w-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#3B2F24]"
+          className="group flex items-center gap-3 cursor-pointer min-w-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1F1B18]"
         >
           <MonogramIcon
             variant="dark"
-            className="h-9 w-9 sm:h-10 sm:w-10 shrink-0 rounded-lg shadow-2xs"
+            className="h-9 w-9 sm:h-10 sm:w-10 shrink-0 rounded-md"
           />
           <span className="flex flex-col min-w-0">
-            <span className="font-serif text-lg sm:text-xl font-semibold tracking-tight text-[#2B2118] group-hover:text-[#3B2F24] transition-colors duration-200 whitespace-nowrap">
+            <span className="font-serif text-lg sm:text-xl font-semibold tracking-tight text-[#1F1B18] whitespace-nowrap">
               {FIRM_INFO.name}
             </span>
-            <span className="text-[10.5px] sm:text-[11px] font-medium tracking-wide text-[#5C4E40] leading-snug">
+            <span className="text-[10.5px] sm:text-[11px] font-medium tracking-wide text-[#5E5650] leading-snug">
               {FIRM_INFO.descriptor}
             </span>
           </span>
@@ -73,13 +71,13 @@ export const Header: React.FC<HeaderProps> = ({ onNavigateToContact }) => {
         {/* Zone 2: Desktop Navigation */}
         <nav
           aria-label="Primary Navigation"
-          className="hidden lg:flex items-center gap-7 text-sm font-medium text-[#5C4E40]"
+          className="hidden lg:flex items-center gap-8 text-sm font-medium text-[#5E5650]"
         >
           {NAV_ITEMS.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="cursor-pointer whitespace-nowrap shrink-0 py-1 text-[#5C4E40] hover:text-[#2B2118] underline-offset-8 hover:underline transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#3B2F24]"
+              className="cursor-pointer whitespace-nowrap shrink-0 py-1 text-[#5E5650] hover:text-[#1F1B18] underline-offset-8 hover:underline transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1F1B18]"
             >
               {item.label}
             </a>
@@ -91,7 +89,7 @@ export const Header: React.FC<HeaderProps> = ({ onNavigateToContact }) => {
           <a
             href="#contact"
             onClick={() => onNavigateToContact()}
-            className="btn-3d-primary hidden sm:inline-flex items-center justify-center cursor-pointer whitespace-nowrap shrink-0 rounded-md bg-[#8A6A3B] px-4 py-2.5 text-xs sm:text-sm font-medium text-white hover:bg-[#6F5430] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2B2118]"
+            className="btn-executive-primary hidden sm:inline-flex items-center justify-center cursor-pointer whitespace-nowrap shrink-0 rounded-md px-4 py-2.5 text-xs sm:text-sm font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1F1B18]"
           >
             Request a Consultation
           </a>
@@ -102,9 +100,13 @@ export const Header: React.FC<HeaderProps> = ({ onNavigateToContact }) => {
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-navigation-menu"
             aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-            className="inline-flex lg:hidden items-center justify-center cursor-pointer rounded-md border border-[#E8DCC8] bg-[#FBF8F3] p-2.5 text-[#2B2118] hover:bg-[#E8DCC8]/50 transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B2F24]"
+            className="inline-flex lg:hidden items-center justify-center cursor-pointer rounded-md border border-[#1F1B18]/[0.12] bg-[#FCFBF9] p-2.5 text-[#1F1B18] hover:border-[#9E7B4F] transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1F1B18]"
           >
-            {mobileMenuOpen ? <X className="h-5 w-5" aria-hidden="true" /> : <Menu className="h-5 w-5" aria-hidden="true" />}
+            {mobileMenuOpen ? (
+              <X className="h-5 w-5" aria-hidden="true" />
+            ) : (
+              <Menu className="h-5 w-5" aria-hidden="true" />
+            )}
           </button>
         </div>
       </div>
@@ -114,7 +116,7 @@ export const Header: React.FC<HeaderProps> = ({ onNavigateToContact }) => {
         <nav
           id="mobile-navigation-menu"
           aria-label="Mobile Navigation"
-          className="lg:hidden border-t border-[#E8DCC8] bg-[#FBF8F3] px-4 pt-3 pb-6 shadow-md"
+          className="lg:hidden border-t border-[#1F1B18]/[0.08] bg-[#FCFBF9] px-4 pt-3 pb-6"
         >
           <ul className="flex flex-col space-y-1">
             {NAV_ITEMS.map((item) => (
@@ -122,21 +124,21 @@ export const Header: React.FC<HeaderProps> = ({ onNavigateToContact }) => {
                 <a
                   href={item.href}
                   onClick={handleMobileNavClick}
-                  className="block cursor-pointer rounded-md px-3 py-2.5 text-base font-medium text-[#2B2118] hover:bg-[#E8DCC8]/40 transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B2F24]"
+                  className="block cursor-pointer rounded-md px-3 py-2.5 text-base font-medium text-[#1F1B18] hover:bg-[#F2EFE9] transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1F1B18]"
                 >
                   {item.label}
                 </a>
               </li>
             ))}
           </ul>
-          <div className="mt-4 pt-4 border-t border-[#E8DCC8]">
+          <div className="mt-4 pt-4 border-t border-[#1F1B18]/[0.08]">
             <a
               href="#contact"
               onClick={() => {
                 handleMobileNavClick();
                 onNavigateToContact();
               }}
-              className="btn-3d-primary flex w-full items-center justify-center cursor-pointer rounded-md bg-[#8A6A3B] px-4 py-3 text-sm font-medium text-white hover:bg-[#6F5430] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2B2118]"
+              className="btn-executive-primary flex w-full items-center justify-center cursor-pointer rounded-md px-4 py-3 text-sm font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1F1B18]"
             >
               Request a Consultation
             </a>

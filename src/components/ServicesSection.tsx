@@ -12,12 +12,10 @@ import {
   ArrowUpRight,
 } from 'lucide-react';
 import { SERVICES, ServiceItem } from '../data/firmData';
-import { Tilt3DCard } from './Tilt3DCard';
-import { ScrollReveal3D } from './ScrollReveal3D';
-import { ParallaxBackdrop } from './ParallaxBackdrop';
 
 interface ServicesSectionProps {
   onSelectService: (serviceTitle: string) => void;
+  onHoverService?: (index: number | null) => void;
 }
 
 const SERVICE_ICONS: Record<ServiceItem['iconName'], React.ComponentType<{ className?: string }>> = {
@@ -32,94 +30,94 @@ const SERVICE_ICONS: Record<ServiceItem['iconName'], React.ComponentType<{ class
   Users,
 };
 
-export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectService }) => {
+export const ServicesSection: React.FC<ServicesSectionProps> = ({
+  onSelectService,
+  onHoverService,
+}) => {
   return (
     <section
       id="services"
       aria-labelledby="services-heading"
-      className="relative overflow-hidden border-b border-[#E8DCC8] bg-[#F5EFE6] py-16 sm:py-24"
+      className="section-veil-alabaster border-b border-[#1F1B18]/[0.08] py-16 sm:py-24"
     >
-      <ParallaxBackdrop variant="bronze" />
-
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <ScrollReveal3D className="max-w-3xl">
-          <p className="text-xs sm:text-sm font-medium text-[#6F5430]">
+        <div className="max-w-3xl">
+          <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.12em] text-[#1D3B2F]">
             Practice Areas &amp; Core Specialties
           </p>
           <h2
             id="services-heading"
-            className="mt-2 font-serif text-2xl sm:text-4xl font-semibold tracking-tight text-[#3B2F24] text-balance"
+            className="mt-2.5 font-serif text-2xl sm:text-4xl font-semibold tracking-tight text-[#1F1B18] leading-[1.18] text-balance"
           >
             External Audit, Tax Advisory, Due Diligence, Liquidation &amp; Accounting
           </h2>
-          <p className="mt-4 text-base text-[#5C4E40] leading-[1.65] max-w-[68ch]">
+          <p className="mt-4 text-base text-[#5E5650] leading-[1.65] max-w-[66ch]">
             We deliver structured assurance, tax advisory, due diligence audits, statutory company liquidation, and accounting services tailored to commercial enterprises, NGOs, financial institutions, and investors in Ethiopia.
           </p>
-        </ScrollReveal3D>
+        </div>
 
-        {/* 9 Service Cards Grid (3x3 on desktop) */}
+        {/* 9 Service Cards Grid (Uniform 3x3 on Desktop with 1px Hairline Borders) */}
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((service, idx) => {
             const IconComponent = SERVICE_ICONS[service.iconName];
             return (
-              <ScrollReveal3D key={service.id} delayMs={(idx % 3) * 60}>
-                <Tilt3DCard
-                  as="article"
-                  maxDegrees={6.5}
-                  className="group h-full flex flex-col justify-between rounded-lg border border-[#E8DCC8] bg-[#FBF8F3] p-6 hover:border-[#8A6A3B]/60"
-                >
-                  <div>
-                    {/* Top Row: Icon & Editorial Number elevated in 3D space */}
-                    <div className="layer-3d-lift flex items-center justify-between gap-4">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-md border border-[#E8DCC8] bg-[#F5EFE6] text-[#6F5430] shadow-2xs group-hover:bg-[#8A6A3B] group-hover:text-white transition-colors duration-200">
-                        <IconComponent className="h-5 w-5" aria-hidden="true" />
-                      </div>
-                      <span className="font-serif text-sm font-medium text-[#5C4E40] tabular-nums">
-                        {service.number}
-                      </span>
+              <article
+                key={service.id}
+                onMouseEnter={() => onHoverService?.(idx)}
+                onMouseLeave={() => onHoverService?.(null)}
+                className="surface-card-ivory group h-full flex flex-col justify-between rounded-lg p-6 sm:p-7 hover:border-[#9E7B4F] transition-colors duration-200"
+              >
+                <div>
+                  {/* Top Row: Clean Monospace Badge & Subtle Icon */}
+                  <div className="flex items-center justify-between gap-4">
+                    <span className="inline-flex items-center rounded border border-[#1F1B18]/[0.08] bg-[#F8F6F2] px-2.5 py-1 font-mono text-xs font-medium text-[#1F1B18] tabular-nums group-hover:border-[#9E7B4F]/40 transition-colors duration-200">
+                      {service.number}
+                    </span>
+                    <div className="flex h-9 w-9 items-center justify-center rounded-md border border-[#1F1B18]/[0.08] bg-[#FFFFFF] text-[#9E7B4F]">
+                      <IconComponent className="h-4 w-4" aria-hidden="true" />
                     </div>
+                  </div>
 
-                    {/* Service Title elevated in 3D space */}
-                    <h3 className="layer-3d-lift-sm mt-5 font-serif text-xl font-semibold text-[#2B2118] leading-snug">
-                      {service.title}
-                    </h3>
+                  {/* Service Title */}
+                  <h3 className="mt-5 font-serif text-xl font-semibold text-[#1F1B18] leading-snug">
+                    {service.title}
+                  </h3>
 
-                    {/* Summary */}
-                    <p className="mt-3 text-sm text-[#5C4E40] leading-[1.6]">
-                      {service.summary}
+                  {/* Summary */}
+                  <p className="mt-2.5 text-sm text-[#5E5650] leading-[1.65]">
+                    {service.summary}
+                  </p>
+
+                  {/* Key Deliverables List */}
+                  <div className="mt-5 pt-4 border-t border-[#1F1B18]/[0.08]">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[#1F1B18]">
+                      Key Deliverables
                     </p>
-
-                    {/* Key Deliverables List */}
-                    <div className="mt-5 pt-4 border-t border-[#E8DCC8]/80">
-                      <p className="text-xs font-semibold text-[#3B2F24]">
-                        Key Deliverables
-                      </p>
-                      <ul className="mt-2 space-y-1.5 text-xs text-[#5C4E40]">
-                        {service.deliverables.map((item) => (
-                          <li key={item} className="flex items-start gap-2">
-                            <span aria-hidden="true" className="text-[#6F5430] font-bold">·</span>
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                    <ul className="mt-2.5 space-y-1.5 text-xs text-[#5E5650]">
+                      {service.deliverables.map((item) => (
+                        <li key={item} className="flex items-start gap-2">
+                          <span aria-hidden="true" className="text-[#9E7B4F] font-semibold">·</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
+                </div>
 
-                  {/* Action Link to Pre-fill Service in Contact Form */}
-                  <div className="layer-3d-lift-sm mt-6 pt-3 border-t border-[#E8DCC8]/60">
-                    <a
-                      href="#contact"
-                      onClick={() => onSelectService(service.title)}
-                      aria-label={`Inquire about ${service.title}`}
-                      className="inline-flex items-center gap-1.5 cursor-pointer whitespace-nowrap shrink-0 text-xs font-semibold text-[#6F5430] hover:text-[#2B2118] transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B2F24]"
-                    >
-                      <span>Request Service Inquiry</span>
-                      <ArrowUpRight className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
-                    </a>
-                  </div>
-                </Tilt3DCard>
-              </ScrollReveal3D>
+                {/* Action Link to Pre-fill Service in Contact Form */}
+                <div className="mt-6 pt-4 border-t border-[#1F1B18]/[0.08]">
+                  <a
+                    href="#contact"
+                    onClick={() => onSelectService(service.title)}
+                    aria-label={`Inquire about ${service.title}`}
+                    className="inline-flex items-center gap-1.5 cursor-pointer whitespace-nowrap shrink-0 text-xs font-semibold text-[#9E7B4F] group-hover:text-[#1F1B18] group-hover:underline underline-offset-4 transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1F1B18]"
+                  >
+                    <span>Request Service Inquiry</span>
+                    <ArrowUpRight className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+                  </a>
+                </div>
+              </article>
             );
           })}
         </div>
@@ -127,4 +125,3 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
     </section>
   );
 };
-

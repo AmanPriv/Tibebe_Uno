@@ -5,8 +5,57 @@ import {
   formatInquiryReference,
   shouldShowBackToTop,
   calculateCardTilt,
+  buildInquiryDispatchLinks,
+  computeScrollytellingStageState,
 } from './validation';
 import { FIRM_INFO, SERVICES, CORE_VALUES, PROCESS_STEPS, INDUSTRIES, TEAM_MEMBERS, FAQ_ITEMS } from '../data/firmData';
+
+test('computeScrollytellingStageState transitions smoothly across all 6 3D narrative chapters', () => {
+  const heroState = computeScrollytellingStageState(0);
+  assert.equal(heroState.stage, 'hero');
+  assert.equal(heroState.monolithDeconstruct, 0);
+  assert.equal(heroState.monolithExit, 0);
+  assert.deepEqual(heroState.cameraPos, [0, 0.2, 6.2]);
+
+  const servicesState = computeScrollytellingStageState(0.18);
+  assert.equal(servicesState.stage, 'services');
+  assert.equal(servicesState.monolithDeconstruct, 1);
+
+  const aboutState = computeScrollytellingStageState(0.35);
+  assert.equal(aboutState.stage, 'about');
+  assert.equal(aboutState.monolithExit, 1);
+  assert.ok(aboutState.pillarsRise > 0.8);
+
+  const processState = computeScrollytellingStageState(0.47);
+  assert.equal(processState.stage, 'process');
+  assert.ok(processState.railProgress > 0.4);
+
+  const horizonState = computeScrollytellingStageState(1.0);
+  assert.equal(horizonState.stage, 'faq-contact');
+  assert.equal(horizonState.horizonCalm, 1);
+});
+
+test('buildInquiryDispatchLinks constructs complete email, webmail, and WhatsApp dispatch URLs', () => {
+  const sampleInput = {
+    name: 'Ato Dawit Alemu',
+    email: 'dawit.alemu@abyssiniacorp.et',
+    phone: '+251 911 223 344',
+    company: 'Abyssinia Trading PLC',
+    serviceNeeded: 'Statutory & External Audit',
+    message: 'We require an external statutory audit for fiscal year ending July 7, 2026.',
+  };
+  const refCode = formatInquiryReference(sampleInput.company, sampleInput.serviceNeeded);
+  const links = buildInquiryDispatchLinks(sampleInput, refCode, FIRM_INFO.emailPlaceholder, '251911516027');
+
+  assert.ok(links.subject.includes(refCode));
+  assert.ok(links.subject.includes('Abyssinia Trading PLC'));
+  assert.ok(links.plainTextBody.includes('Ato Dawit Alemu'));
+  assert.ok(links.plainTextBody.includes('dawit.alemu@abyssiniacorp.et'));
+  assert.ok(links.plainTextBody.includes('+251 911 223 344'));
+  assert.ok(links.mailtoHref.startsWith('mailto:Tibebe@Tibebemengistu.com?subject='));
+  assert.ok(links.gmailComposeHref.startsWith('https://mail.google.com/mail/?view=cm&fs=1&to='));
+  assert.ok(links.whatsappHref.startsWith('https://wa.me/251911516027?text='));
+});
 
 test('calculateCardTilt returns zero tilt at center and respects max degree bounds', () => {
   const center = calculateCardTilt(0.5, 0.5, 6.5);
@@ -92,6 +141,9 @@ test('formatInquiryReference generates deterministic readable reference code', (
 });
 
 test('firmData satisfies all structural requirements and updated credentials', () => {
+  assert.equal(FIRM_INFO.name, 'Tibebe Mengistu');
+  assert.ok(!FIRM_INFO.name.includes('& Co.'));
+  assert.ok(!TEAM_MEMBERS[0].bioPlaceholder.includes('& Co.'));
   assert.equal(SERVICES.length, 9);
   assert.ok(SERVICES.some((s) => s.title === 'Company Liquidation'));
   assert.equal(CORE_VALUES.length, 4);

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { FAQ_ITEMS } from '../data/firmData';
-import { ScrollReveal3D } from './ScrollReveal3D';
 
 export const FaqSection: React.FC = () => {
   const [openIds, setOpenIds] = useState<string[]>([FAQ_ITEMS[0].id]);
@@ -26,21 +25,21 @@ export const FaqSection: React.FC = () => {
     <section
       id="faq"
       aria-labelledby="faq-heading"
-      className="border-b border-[#E8DCC8] bg-[#E8DCC8]/35 py-16 sm:py-24"
+      className="section-veil-sand border-b border-[#1F1B18]/[0.08] py-16 sm:py-24"
     >
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <ScrollReveal3D className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
           <div className="max-w-2xl">
-            <p className="text-xs sm:text-sm font-medium text-[#6F5430]">
+            <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.12em] text-[#1D3B2F]">
               Frequently Asked Questions
             </p>
             <h2
               id="faq-heading"
-              className="mt-2 font-serif text-2xl sm:text-4xl font-semibold tracking-tight text-[#3B2F24] text-balance"
+              className="mt-2.5 font-serif text-2xl sm:text-4xl font-semibold tracking-tight text-[#1F1B18] leading-[1.18] text-balance"
             >
               Common Inquiries Regarding Audits &amp; Engagements
             </h2>
-            <p className="mt-3 text-base text-[#5C4E40] leading-[1.6]">
+            <p className="mt-3 text-base text-[#5E5650] leading-[1.65]">
               Clear answers on audit preparation, timelines, fee structures, confidentiality, and statutory deadlines.
             </p>
           </div>
@@ -48,14 +47,14 @@ export const FaqSection: React.FC = () => {
           <button
             type="button"
             onClick={handleToggleAll}
-            className="btn-3d-secondary self-start sm:self-auto cursor-pointer whitespace-nowrap shrink-0 rounded-md border border-[#E8DCC8] bg-[#FBF8F3] px-3.5 py-2 text-xs font-medium text-[#2B2118] hover:bg-[#E8DCC8]/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B2F24]"
+            className="btn-executive-secondary self-start sm:self-auto cursor-pointer whitespace-nowrap shrink-0 rounded-md px-3.5 py-2 text-xs font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1F1B18]"
           >
             {allExpanded ? 'Collapse All Questions' : 'Expand All Questions'}
           </button>
-        </ScrollReveal3D>
+        </div>
 
-        {/* Accessible 6-Item Accordion */}
-        <ScrollReveal3D delayMs={80} className="mt-10 divide-y divide-[#E8DCC8] rounded-lg border border-[#E8DCC8] bg-[#FBF8F3] shadow-xs">
+        {/* Accessible 6-Item Accordion with Clean Hairline Dividers */}
+        <div className="surface-card-ivory mt-10 divide-y divide-[#1F1B18]/[0.08] rounded-lg">
           {FAQ_ITEMS.map((item, idx) => {
             const isOpen = openIds.includes(item.id);
             const panelId = `${item.id}-panel`;
@@ -70,19 +69,21 @@ export const FaqSection: React.FC = () => {
                     aria-expanded={isOpen}
                     aria-controls={panelId}
                     onClick={() => toggleItem(item.id)}
-                    className="flex w-full cursor-pointer items-start justify-between gap-4 text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#3B2F24]"
+                    className="flex w-full cursor-pointer items-start justify-between gap-4 text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1F1B18]"
                   >
                     <div className="pr-2">
-                      <span className="text-xs font-medium text-[#6F5430]">
+                      <span className="font-mono text-[11px] font-medium uppercase tracking-[0.06em] text-[#9E7B4F] tabular-nums">
                         0{idx + 1} · {item.category}
                       </span>
-                      <span className="mt-1 block font-serif text-lg sm:text-xl font-semibold text-[#2B2118]">
+                      <span className="mt-1 block font-serif text-lg sm:text-xl font-semibold text-[#1F1B18]">
                         {item.question}
                       </span>
                     </div>
                     <span
-                      className={`mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-[#E8DCC8] bg-[#F5EFE6] text-[#2B2118] transition-transform duration-200 ${
-                        isOpen ? 'rotate-180 bg-[#8A6A3B] text-white border-[#8A6A3B]' : ''
+                      className={`mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded border transition-all duration-200 ${
+                        isOpen
+                          ? 'rotate-180 border-[#9E7B4F] bg-[#9E7B4F] text-white'
+                          : 'border-[#1F1B18]/[0.12] bg-[#F8F6F2] text-[#1F1B18]'
                       }`}
                       aria-hidden="true"
                     >
@@ -96,16 +97,16 @@ export const FaqSection: React.FC = () => {
                   role="region"
                   aria-labelledby={buttonId}
                   hidden={!isOpen}
-                  className={isOpen ? 'mt-4 pt-3 border-t border-[#E8DCC8]/70' : 'hidden'}
+                  className={isOpen ? 'mt-4 pt-3.5 border-t border-[#1F1B18]/[0.08]' : 'hidden'}
                 >
-                  <p className="text-sm sm:text-base text-[#5C4E40] leading-[1.65] max-w-[68ch]">
+                  <p className="text-sm sm:text-base text-[#5E5650] leading-[1.68] max-w-[68ch]">
                     {item.answer}
                   </p>
                 </div>
               </div>
             );
           })}
-        </ScrollReveal3D>
+        </div>
       </div>
     </section>
   );
