@@ -50,15 +50,15 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
             id="services-heading"
             className="mt-2.5 font-serif text-2xl sm:text-4xl font-semibold tracking-tight text-[#1F1B18] leading-[1.18] text-balance"
           >
-            External Audit, Tax Advisory, Due Diligence, Liquidation &amp; Accounting
+            External Audit, Tax Advisory, Due Diligence, Liquidation &amp; IFRS Reporting
           </h2>
           <p className="mt-4 text-base text-[#5E5650] leading-[1.65] max-w-[66ch]">
-            We deliver structured assurance, tax advisory, due diligence audits, statutory company liquidation, and accounting services tailored to commercial enterprises, NGOs, financial institutions, and investors in Ethiopia.
+            We deliver structured assurance, tax advisory, due diligence audits, statutory company liquidation, and IFRS financial reporting tailored to commercial enterprises, NGOs, financial institutions, and investors in Ethiopia.
           </p>
         </div>
 
-        {/* 9 Service Cards Grid (Uniform 3x3 on Desktop with 1px Hairline Borders) */}
-        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {/* 8 Service Cards Grid (2 Rows of 4 on Wide Desktop, 4 Rows of 2 on Tablet/Smaller Desktop — Zero Orphan Card) */}
+        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
           {SERVICES.map((service, idx) => {
             const IconComponent = SERVICE_ICONS[service.iconName];
             return (
@@ -93,7 +93,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                   <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[#1F1B18]">
                     Key Deliverables
                   </p>
-                  <ul className="mt-2.5 space-y-1.5 text-xs text-[#5E5650] min-h-[5.5rem]">
+                  <ul className="mt-2.5 space-y-1.5 text-xs text-[#5E5650] min-h-[6.75rem]">
                     {service.deliverables.map((item) => (
                       <li key={item} className="flex items-start gap-2">
                         <span aria-hidden="true" className="text-[#9E7B4F] font-semibold">·</span>

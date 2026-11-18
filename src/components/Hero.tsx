@@ -56,7 +56,7 @@ export const Hero: React.FC<HeroProps> = ({ onRequestConsultation }) => {
             </h1>
 
             <p className="mt-5 text-base sm:text-lg text-[#5E5650] leading-[1.65] max-w-[62ch]">
-              Led by <strong className="font-medium text-[#1F1B18]">{FIRM_INFO.principalName}</strong> ({FIRM_INFO.principalTitle}), {FIRM_INFO.name} delivers independent external audit, tax advisory, due diligence audit, company liquidation, and accounting services for businesses, NGOs, banks, and investors.
+              Led by <strong className="font-medium text-[#1F1B18]">{FIRM_INFO.principalName}</strong> ({FIRM_INFO.principalTitle}), {FIRM_INFO.name} delivers independent external audit, tax advisory, due diligence audit, and company liquidation services for businesses, NGOs, banks, and investors.
             </p>
 
             {/* Primary & Secondary CTAs */}

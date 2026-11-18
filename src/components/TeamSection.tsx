@@ -20,10 +20,6 @@ const PRINCIPAL_SPECIALTIES = [
     title: 'Company Liquidation',
     detail: 'Full statutory winding-up audits, creditor settlement verification, tax clearance, and commercial deregistration.',
   },
-  {
-    title: 'Accounting Services',
-    detail: 'IFRS/IPSAS financial reporting, general ledger supervision, chart-of-accounts structuring, and payroll compliance.',
-  },
 ];
 
 export const TeamSection: React.FC = () => {

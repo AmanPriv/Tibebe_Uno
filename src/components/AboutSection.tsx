@@ -43,7 +43,7 @@ export const AboutSection: React.FC = () => {
                   As <strong className="font-medium text-[#1F1B18]">{FIRM_INFO.descriptor}</strong>, we have supported <strong className="font-medium text-[#1F1B18] lowercase">{FIRM_INFO.clientCountPlaceholder}</strong> organizations across commercial and development sectors.
                 </p>
                 <p>
-                  Our core practice specialties encompass <strong className="font-medium text-[#1F1B18]">external audit, tax advisory, due diligence audit, company liquidation, and accounting services</strong>—combining international FCCA (UK) technical standards with deep mastery of Ethiopian commercial and tax law.
+                  Our core practice specialties encompass <strong className="font-medium text-[#1F1B18]">external audit, tax advisory, due diligence audit, and company liquidation</strong>—combining international FCCA (UK) technical standards with deep mastery of Ethiopian commercial and tax law.
                 </p>
               </div>
             </div>

@@ -84,7 +84,7 @@ export const FIRM_INFO = {
   addressPlaceholder: 'Bole, Abyssinia Plaza, 6th Floor, Addis Ababa, Ethiopia',
   phonePlaceholder: '+251 911 516 027',
   emailPlaceholder: 'Tibebe@Tibebemengistu.com',
-  hoursPlaceholder: 'Monday – Friday: 8:30 AM – 5:30 PM',
+  hoursPlaceholder: 'Monday – Friday: 8:00 AM – 5:00 PM',
   mapCoordinatesPlaceholder: 'Bole, Abyssinia Plaza, 6th Floor · Addis Ababa, Ethiopia',
   mapUrl: 'https://maps.app.goo.gl/TmEpxF8mNhRVDahY7',
   mapEmbedUrl:
@@ -135,22 +135,8 @@ export const SERVICES: ServiceItem[] = [
     audience: 'Commercial Entities, Exporters & Multinationals',
   },
   {
-    id: 'accounting-bookkeeping',
-    number: '04',
-    title: 'Accounting & Bookkeeping Services',
-    iconName: 'BookOpen',
-    summary:
-      'Methodical maintenance of general ledgers, chart-of-accounts architecture, bank reconciliations, and monthly management reporting packages.',
-    deliverables: [
-      'Monthly Trial Balance & Ledger Close',
-      'Fixed Asset Register Maintenance',
-      'Chart of Accounts Restructuring',
-    ],
-    audience: 'SMEs, Foreign Subsidiaries & Project Offices',
-  },
-  {
     id: 'financial-reporting-ifrs',
-    number: '05',
+    number: '04',
     title: 'Financial Reporting (IFRS)',
     iconName: 'FileSpreadsheet',
     summary:
@@ -164,7 +150,7 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     id: 'due-diligence',
-    number: '06',
+    number: '05',
     title: 'Due Diligence & Feasibility Studies',
     iconName: 'SearchCheck',
     summary:
@@ -178,7 +164,7 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     id: 'company-liquidation',
-    number: '07',
+    number: '06',
     title: 'Company Liquidation',
     iconName: 'FileCheck2',
     summary:
@@ -192,7 +178,7 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     id: 'business-advisory',
-    number: '08',
+    number: '07',
     title: 'Business Advisory',
     iconName: 'Compass',
     summary:
@@ -206,7 +192,7 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     id: 'payroll-support',
-    number: '09',
+    number: '08',
     title: 'Payroll Support',
     iconName: 'Users',
     summary:
@@ -342,13 +328,12 @@ export const TEAM_MEMBERS: TeamMember[] = [
     credentialsPlaceholder:
       'BA · Fellow, Association of Chartered Certified Accountants (FCCA, UK) · Authorized Auditor (Ethiopia)',
     bioPlaceholder:
-      'Founder, Owner, and Principal (General Manager) of Tibebe Mengistu. Personally leads and signs off on the firm’s external audit, tax advisory, due diligence audit, company liquidation, and accounting services engagements for commercial enterprises, financial institutions, non-governmental organizations, and investors across Ethiopia.',
+      'Founder, Owner, and Principal (General Manager) of Tibebe Mengistu. Personally leads and signs off on the firm’s external audit, tax advisory, due diligence audit, and company liquidation engagements for commercial enterprises, financial institutions, non-governmental organizations, and investors across Ethiopia.',
     focusAreas: [
       'External Audit',
       'Tax Advisory',
       'Due Diligence Audit',
       'Company Liquidation',
-      'Accounting Services',
     ],
   },
 ];

@@ -279,7 +279,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ selectedService 
             Request a Professional Consultation
           </h2>
           <p className="mt-4 text-base text-[#5E5650] leading-[1.65] max-w-[65ch]">
-            Discuss your upcoming external audit, donor grant attestation, tax advisory, due diligence audit, company liquidation, or accounting requirement directly with our Owner &amp; Principal. All inquiries are routed directly to <strong className="font-medium text-[#1F1B18]">{FIRM_INFO.emailPlaceholder}</strong> and treated with strict confidentiality.
+            Discuss your upcoming external audit, donor grant attestation, tax advisory, due diligence audit, or company liquidation requirement directly with our Owner &amp; Principal. All inquiries are routed directly to <strong className="font-medium text-[#1F1B18]">{FIRM_INFO.emailPlaceholder}</strong> and treated with strict confidentiality.
           </p>
         </ScrollReveal3D>
 

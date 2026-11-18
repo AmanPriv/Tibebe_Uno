@@ -50,7 +50,7 @@ export const Footer: React.FC = () => {
             </a>
 
             <p className="mt-4 text-sm text-[#5E5650] leading-[1.65] max-w-sm">
-              {FIRM_INFO.tagline} Led by {FIRM_INFO.principalName} ({FIRM_INFO.principalTitle}), providing external audit, tax advisory, due diligence audit, company liquidation, and accounting services.
+              {FIRM_INFO.tagline} Led by {FIRM_INFO.principalName} ({FIRM_INFO.principalTitle}), providing external audit, tax advisory, due diligence audit, and company liquidation services.
             </p>
 
             <p className="mt-4 text-xs text-[#5E5650]">
