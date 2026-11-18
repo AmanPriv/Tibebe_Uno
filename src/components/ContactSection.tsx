@@ -191,9 +191,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ selectedService 
     }
 
     // Always attempt automated background email relay to Tibebe@Tibebemengistu.com
-    const customEndpoint = (import.meta.env.VITE_FORM_ENDPOINT as string | undefined)?.trim();
-    const endpoint =
-      customEndpoint || `https://formsubmit.co/ajax/${FIRM_INFO.emailPlaceholder}`;
+    const endpoint = `https://formsubmit.co/ajax/${FIRM_INFO.emailPlaceholder}`;
 
     try {
       const response = await fetch(endpoint, {
