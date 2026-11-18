@@ -265,7 +265,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ selectedService 
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="section-veil-alabaster border-b border-[#1F1B18]/[0.08] py-16 sm:py-24"
+      className="section-veil-alabaster border-b border-[#1F1B18]/[0.08] pt-12 pb-16 sm:pt-14 sm:pb-20"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal3D className="max-w-3xl">

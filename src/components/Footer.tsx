@@ -125,24 +125,27 @@ export const Footer: React.FC = () => {
                 </dd>
               </div>
             </dl>
+
+            <div className="mt-5 pt-4 border-t border-[#1F1B18]/[0.08]">
+              <a
+                href="#top"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleBackToTop();
+                }}
+                className="inline-flex items-center gap-1.5 cursor-pointer text-xs font-semibold text-[#9E7B4F] hover:text-[#1F1B18] transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1F1B18]"
+              >
+                <span>Back to Top</span>
+                <ArrowUp className="h-3.5 w-3.5" aria-hidden="true" />
+              </a>
+            </div>
           </div>
         </div>
 
-        {/* Bottom Legal & Copyright Bar with Integrated Back to Top Control (Zero Overlap) */}
-        <div className="mt-12 pt-8 border-t border-[#1F1B18]/[0.08] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-xs text-[#5E5650]">
+        {/* Bottom Legal & Copyright Bar with 90px Right Clearance & Zero Overlap */}
+        <div className="mt-12 pt-8 border-t border-[#1F1B18]/[0.08] lg:pr-[90px] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-xs text-[#5E5650]">
           <p>© 2026 {FIRM_INFO.name}. All rights reserved.</p>
-
-          <div className="flex flex-wrap items-center justify-between sm:justify-end gap-6">
-            <p>{FIRM_INFO.descriptor}</p>
-            <button
-              type="button"
-              onClick={handleBackToTop}
-              className="inline-flex items-center gap-1.5 cursor-pointer whitespace-nowrap shrink-0 rounded border border-[#1F1B18]/[0.12] bg-[#F8F6F2] px-3 py-1.5 text-xs font-medium text-[#1F1B18] hover:border-[#9E7B4F] hover:text-[#9E7B4F] transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1F1B18]"
-            >
-              <span>Back to Top</span>
-              <ArrowUp className="h-3.5 w-3.5" aria-hidden="true" />
-            </button>
-          </div>
+          <p>{FIRM_INFO.descriptor}</p>
         </div>
       </div>
     </footer>

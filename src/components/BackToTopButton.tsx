@@ -7,7 +7,7 @@ export const BackToTopButton: React.FC = () => {
 
   useEffect(() => {
     const evaluateVisibility = () => {
-      const heroSection = document.getElementById('top');
+      const heroSection = document.getElementById('hero') || document.getElementById('top');
       const footerEl = document.getElementById('site-footer');
       const headerHeight = 80;
       const heroThreshold = heroSection

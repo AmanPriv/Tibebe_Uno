@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { ServicesSection } from './components/ServicesSection';
@@ -14,6 +14,12 @@ import { BackToTopButton } from './components/BackToTopButton';
 export default function App() {
   const [selectedService, setSelectedService] = useState<string>('');
   const [activeProcessStep, setActiveProcessStep] = useState<number>(3);
+
+  useEffect(() => {
+    if (!window.location.hash || window.location.hash === '#top') {
+      window.scrollTo(0, 0);
+    }
+  }, []);
 
   const attachBgComment = useCallback((node: HTMLElement | null) => {
     if (!node || !node.parentNode) return;

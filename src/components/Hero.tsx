@@ -32,7 +32,7 @@ export const Hero: React.FC<HeroProps> = ({ onRequestConsultation }) => {
 
   return (
     <section
-      id="top"
+      id="hero"
       aria-labelledby="hero-heading"
       className="hero-scrim-veil relative border-b border-[#1F1B18]/[0.08] pt-10 pb-14 sm:pt-14 sm:pb-18 lg:pt-16 lg:pb-20"
     >
@@ -79,28 +79,32 @@ export const Hero: React.FC<HeroProps> = ({ onRequestConsultation }) => {
             </div>
           </div>
 
-          {/* Right Column: High-Impact Editorial Hero Card (Upper ~60% Full-Bleed Architectural/Boardroom Photo + Attestation Footer) */}
+          {/* Right Column: High-Impact Editorial Hero Card (16:10 Executive Boardroom Photo + Attestation Footer) */}
           <div className="lg:col-span-5">
             <aside
               aria-label="Practice Credentials and Principal Supervision"
               className="surface-card-ivory flex h-full flex-col overflow-hidden rounded-lg"
             >
-              {/* Upper ~60%: Full-Bleed High-Resolution Architectural/Executive Photograph with Clean Bottom Gradient */}
-              <div className="relative h-60 sm:h-68 lg:h-72 w-full shrink-0 overflow-hidden bg-[#EAE4DA]">
+              {/* Upper Image Frame: 16:10 Aspect Ratio, Full Width, #E8E0D4 Fallback */}
+              <div
+                style={{ aspectRatio: '16 / 10', backgroundColor: '#E8E0D4' }}
+                className="relative w-full shrink-0 overflow-hidden bg-[#E8E0D4]"
+              >
                 {/* <!-- HERO CARD IMAGE --> */}
                 <img
                   ref={attachHeroCardComments}
-                  src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85"
-                  alt="Modern executive advisory chambers and architectural glass interior"
+                  src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80"
+                  alt="Modern executive boardroom and minimalist architectural glass interior"
                   fetchPriority="high"
                   decoding="async"
+                  style={{ aspectRatio: '16 / 10', width: '100%', objectFit: 'cover', backgroundColor: '#E8E0D4' }}
                   className="editorial-photo h-full w-full object-cover object-center"
                 />
 
                 {/* Subtle Warm-Espresso Editorial Tint & Clean Bottom Gradient Fade into #FFFFFF */}
                 <div
                   aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#1F1B18]/45 via-[#1F1B18]/15 to-[#FFFFFF]"
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#1F1B18]/40 via-[#1F1B18]/10 to-[#FFFFFF]"
                 />
 
                 {/* Top Institutional Seal Overlay */}
@@ -121,9 +125,9 @@ export const Hero: React.FC<HeroProps> = ({ onRequestConsultation }) => {
                 </div>
               </div>
 
-              {/* Lower ~40%: Attestation Quote, Supervision Note & 2-Column Metadata Footer */}
+              {/* Lower Attestation Quote, Supervision Note & Clean Space-Between Metadata Footer */}
               <div className="flex flex-1 flex-col justify-between bg-[#FFFFFF]">
-                <div className="px-6 pt-3 pb-5">
+                <div className="px-6 pt-4 pb-5">
                   <p className="font-serif text-xl sm:text-2xl font-semibold text-[#1F1B18]">
                     “Clarity. Integrity. Assurance.”
                   </p>
@@ -132,23 +136,23 @@ export const Hero: React.FC<HeroProps> = ({ onRequestConsultation }) => {
                   </p>
                 </div>
 
-                {/* Structured 2-Column Metadata Footer */}
-                <div className="grid grid-cols-2 divide-x divide-[#1F1B18]/[0.08] border-t border-[#1F1B18]/[0.08] bg-[#FCFBF9] text-xs">
-                  <div className="px-6 py-3.5">
-                    <span className="block text-[10.5px] font-medium uppercase tracking-[0.08em] text-[#5E5650]">
-                      Standards
+                {/* Clean Space-Between Metadata Footer (Zero Floating Dot) */}
+                <div className="flex flex-wrap items-center justify-between gap-4 border-t border-[#1F1B18]/[0.08] bg-[#FCFBF9] px-6 py-3.5 text-xs">
+                  <div>
+                    <span className="text-[11px] font-medium uppercase tracking-[0.06em] text-[#5E5650]">
+                      Standards:{' '}
                     </span>
-                    <span className="mt-0.5 block font-mono font-semibold text-[#1F1B18] tabular-nums">
+                    <strong className="font-mono font-semibold text-[#1F1B18] tabular-nums">
                       ISA · IFRS · IPSAS
-                    </span>
+                    </strong>
                   </div>
-                  <div className="px-6 py-3.5">
-                    <span className="block text-[10.5px] font-medium uppercase tracking-[0.08em] text-[#5E5650]">
-                      Established
+                  <div>
+                    <span className="text-[11px] font-medium uppercase tracking-[0.06em] text-[#5E5650]">
+                      Established{' '}
                     </span>
-                    <span className="mt-0.5 block font-mono font-semibold text-[#1F1B18] tabular-nums">
+                    <strong className="font-mono font-semibold text-[#1F1B18] tabular-nums">
                       {FIRM_INFO.yearEstablishedPlaceholder}
-                    </span>
+                    </strong>
                   </div>
                 </div>
               </div>

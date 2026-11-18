@@ -48,16 +48,39 @@ export const AboutSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Unified Horizontal Editorial Chambers / Architecture Card + Key Practice Stat Blocks */}
-            <div className="surface-card-ivory mt-7 overflow-hidden rounded-lg">
-              <div className="relative h-44 sm:h-48 w-full overflow-hidden bg-[#EAE4DA]">
+            {/* Key Practice Facts (Established: May 2011 / Organizations Served: Countless) */}
+            <dl className="mt-6 grid grid-cols-2 gap-4">
+              <div className="surface-card-ivory rounded-lg px-5 py-4">
+                <dt className="text-[11px] font-medium uppercase tracking-[0.08em] text-[#5E5650]">
+                  Established
+                </dt>
+                <dd className="mt-1 font-serif text-xl sm:text-2xl font-semibold text-[#1F1B18] tabular-nums">
+                  {FIRM_INFO.yearEstablishedPlaceholder}
+                </dd>
+              </div>
+              <div className="surface-card-ivory rounded-lg px-5 py-4">
+                <dt className="text-[11px] font-medium uppercase tracking-[0.08em] text-[#5E5650]">
+                  Organizations Served
+                </dt>
+                <dd className="mt-1 font-serif text-xl sm:text-2xl font-semibold text-[#1F1B18] tabular-nums">
+                  {FIRM_INFO.clientCountPlaceholder}
+                </dd>
+              </div>
+            </dl>
+
+            {/* Horizontal Editorial Chambers / Architecture Image Directly Below Stat Boxes */}
+            <div className="surface-card-ivory mt-4 overflow-hidden rounded-lg">
+              <div
+                style={{ backgroundColor: '#E8E0D4' }}
+                className="relative h-44 sm:h-48 w-full overflow-hidden bg-[#E8E0D4]"
+              >
                 {/* <!-- CHAMBERS IMAGE --> */}
                 <img
                   ref={attachHtmlComment('CHAMBERS IMAGE')}
-                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=85"
+                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80"
                   alt="Minimalist executive boardroom and architectural glass chambers"
-                  loading="lazy"
                   decoding="async"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', backgroundColor: '#E8E0D4' }}
                   className="editorial-photo h-full w-full object-cover object-center"
                 />
                 <div
@@ -73,26 +96,6 @@ export const AboutSection: React.FC = () => {
                   </span>
                 </div>
               </div>
-
-              {/* Key Practice Facts (Established: May 2011 / Organizations Served: Countless) */}
-              <dl className="grid grid-cols-2 divide-x divide-[#1F1B18]/[0.08] border-t border-[#1F1B18]/[0.08]">
-                <div className="px-5 py-4">
-                  <dt className="text-[11px] font-medium uppercase tracking-[0.08em] text-[#5E5650]">
-                    Established
-                  </dt>
-                  <dd className="mt-1 font-serif text-xl sm:text-2xl font-semibold text-[#1F1B18] tabular-nums">
-                    {FIRM_INFO.yearEstablishedPlaceholder}
-                  </dd>
-                </div>
-                <div className="px-5 py-4">
-                  <dt className="text-[11px] font-medium uppercase tracking-[0.08em] text-[#5E5650]">
-                    Organizations Served
-                  </dt>
-                  <dd className="mt-1 font-serif text-xl sm:text-2xl font-semibold text-[#1F1B18] tabular-nums">
-                    {FIRM_INFO.clientCountPlaceholder}
-                  </dd>
-                </div>
-              </dl>
             </div>
           </div>
 

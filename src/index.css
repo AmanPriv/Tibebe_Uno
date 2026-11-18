@@ -58,9 +58,13 @@ html {
    BACKGROUND IMAGE & READABILITY SCRIM ARCHITECTURE
    <!-- BACKGROUND IMAGE -->
    ========================================================================== */
+#top {
+  scroll-margin-top: 0 !important;
+}
+
 .architectural-page-bg {
   background-color: #F8F6F2;
-  background-image: url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=85");
+  background-image: url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80");
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -74,12 +78,12 @@ html {
   }
 }
 
-/* Hero warm alabaster translucent veil (86% -> 94%) */
+/* Hero warm alabaster translucent veil (88% -> 95%) */
 .hero-scrim-veil {
   background: linear-gradient(
     180deg,
-    rgba(248, 246, 242, 0.86) 0%,
-    rgba(248, 246, 242, 0.94) 100%
+    rgba(248, 246, 242, 0.88) 0%,
+    rgba(248, 246, 242, 0.95) 100%
   );
 }
 
@@ -100,11 +104,22 @@ html {
   border: 1px solid rgba(31, 27, 24, 0.08);
 }
 
-/* Unified warm editorial photography grading */
+/* Unified warm editorial photography grading with #E8E0D4 fallback */
 .editorial-photo {
   filter: contrast(1.03) saturate(0.78);
-  background-color: #EAE4DA;
+  background-color: #E8E0D4;
+  object-fit: cover;
   transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1), filter 300ms ease-out;
+}
+
+/* Service card flex alignment for Key Deliverables */
+.service-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card .deliverables {
+  margin-top: auto;
 }
 
 /* Subtle 250ms executive micro-transition */

@@ -66,10 +66,10 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                 key={service.id}
                 onMouseEnter={() => onHoverService?.(idx)}
                 onMouseLeave={() => onHoverService?.(null)}
-                className="surface-card-ivory group h-full flex flex-col justify-between rounded-lg p-6 sm:p-7 hover:border-[#9E7B4F] transition-colors duration-200"
+                className="service-card surface-card-ivory group h-full flex flex-col rounded-lg p-6 sm:p-7 hover:border-[#9E7B4F] transition-colors duration-200"
               >
-                <div>
-                  {/* Top Row: Clean Monospace Badge & Subtle Icon */}
+                {/* Top Block: Monospace Badge, Icon, Title & Summary */}
+                <div className="pb-5">
                   <div className="flex items-center justify-between gap-4">
                     <span className="inline-flex items-center rounded border border-[#1F1B18]/[0.08] bg-[#F8F6F2] px-2.5 py-1 font-mono text-xs font-medium text-[#1F1B18] tabular-nums group-hover:border-[#9E7B4F]/40 transition-colors duration-200">
                       {service.number}
@@ -79,43 +79,41 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                     </div>
                   </div>
 
-                  {/* Service Title */}
                   <h3 className="mt-5 font-serif text-xl font-semibold text-[#1F1B18] leading-snug">
                     {service.title}
                   </h3>
 
-                  {/* Summary */}
                   <p className="mt-2.5 text-sm text-[#5E5650] leading-[1.65]">
                     {service.summary}
                   </p>
-
-                  {/* Key Deliverables List */}
-                  <div className="mt-5 pt-4 border-t border-[#1F1B18]/[0.08]">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[#1F1B18]">
-                      Key Deliverables
-                    </p>
-                    <ul className="mt-2.5 space-y-1.5 text-xs text-[#5E5650]">
-                      {service.deliverables.map((item) => (
-                        <li key={item} className="flex items-start gap-2">
-                          <span aria-hidden="true" className="text-[#9E7B4F] font-semibold">·</span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
                 </div>
 
-                {/* Action Link to Pre-fill Service in Contact Form */}
-                <div className="mt-6 pt-4 border-t border-[#1F1B18]/[0.08]">
-                  <a
-                    href="#contact"
-                    onClick={() => onSelectService(service.title)}
-                    aria-label={`Inquire about ${service.title}`}
-                    className="inline-flex items-center gap-1.5 cursor-pointer whitespace-nowrap shrink-0 text-xs font-semibold text-[#9E7B4F] group-hover:text-[#1F1B18] group-hover:underline underline-offset-4 transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1F1B18]"
-                  >
-                    <span>Request Service Inquiry</span>
-                    <ArrowUpRight className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
-                  </a>
+                {/* Key Deliverables Block: Pushed to bottom via margin-top: auto so divider lines align across every row */}
+                <div className="deliverables mt-auto pt-4 border-t border-[#1F1B18]/[0.08]">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[#1F1B18]">
+                    Key Deliverables
+                  </p>
+                  <ul className="mt-2.5 space-y-1.5 text-xs text-[#5E5650] min-h-[5.5rem]">
+                    {service.deliverables.map((item) => (
+                      <li key={item} className="flex items-start gap-2">
+                        <span aria-hidden="true" className="text-[#9E7B4F] font-semibold">·</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Action Link to Pre-fill Service in Contact Form */}
+                  <div className="mt-5 pt-4 border-t border-[#1F1B18]/[0.08]">
+                    <a
+                      href="#contact"
+                      onClick={() => onSelectService(service.title)}
+                      aria-label={`Inquire about ${service.title}`}
+                      className="inline-flex items-center gap-1.5 cursor-pointer whitespace-nowrap shrink-0 text-xs font-semibold text-[#9E7B4F] group-hover:text-[#1F1B18] group-hover:underline underline-offset-4 transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1F1B18]"
+                    >
+                      <span>Request Service Inquiry</span>
+                      <ArrowUpRight className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+                    </a>
+                  </div>
                 </div>
               </article>
             );

@@ -35,12 +35,12 @@ export const TeamSection: React.FC = () => {
     if (
       prev &&
       prev.nodeType === Node.COMMENT_NODE &&
-      prev.nodeValue?.includes('REPLACE WITH: Principal Portrait Photo')
+      prev.nodeValue?.includes('REPLACE WITH: Tibebe Mengistu Headshot')
     ) {
       return;
     }
     const c1 = document.createComment(' PRINCIPAL PORTRAIT ');
-    const c2 = document.createComment(' REPLACE WITH: Principal Portrait Photo ');
+    const c2 = document.createComment(' REPLACE WITH: Tibebe Mengistu Headshot ');
     node.parentNode.insertBefore(c1, node);
     node.parentNode.insertBefore(c2, node);
   }, []);
@@ -72,37 +72,37 @@ export const TeamSection: React.FC = () => {
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-start">
             {/* Left Column (4 cols): Dedicated 4:5 Executive Portrait Frame */}
             <div className="lg:col-span-4">
-              <div className="mx-auto max-w-sm lg:max-w-none overflow-hidden rounded-lg border border-[#1F1B18]/[0.08] bg-[#EAE4DA]">
+              <div className="mx-auto max-w-sm lg:max-w-none overflow-hidden rounded-lg border border-[#1F1B18]/[0.08] bg-[#E8E0D4]">
                 <div
-                  style={{ aspectRatio: '4 / 5' }}
-                  className="relative w-full overflow-hidden bg-[#1F1B18]"
+                  style={{ aspectRatio: '4 / 5', backgroundColor: '#E8E0D4' }}
+                  className="relative w-full overflow-hidden bg-[#E8E0D4]"
                 >
                   {/* <!-- PRINCIPAL PORTRAIT --> */}
-                  {/* <!-- REPLACE WITH: Principal Portrait Photo --> */}
+                  {/* <!-- REPLACE WITH: Tibebe Mengistu Headshot --> */}
                   <img
                     ref={attachPortraitComments}
-                    src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=900&q=85"
+                    src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1600&q=80"
                     alt="Executive chambers portrait frame for Tibebe Mengistu, BA, FCCA"
-                    loading="lazy"
                     decoding="async"
-                    className="editorial-photo h-full w-full object-cover object-center opacity-50"
+                    style={{ aspectRatio: '4 / 5', width: '100%', height: '100%', objectFit: 'cover', backgroundColor: '#E8E0D4' }}
+                    className="editorial-photo h-full w-full object-cover object-center"
                   />
 
-                  {/* Warm Espresso Architectural Silhouette & Monogram Seal Fallback Overlay */}
+                  {/* Subtle Warm-Espresso Gradient Overlay */}
                   <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#1F1B18] via-[#1F1B18]/55 to-[#1F1B18]/30"
+                    className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#1F1B18]/85 via-[#1F1B18]/35 to-[#1F1B18]/15"
                   />
 
-                  {/* Centered Architectural Monogram Crest & Silhouette */}
+                  {/* Centered Architectural Monogram Crest */}
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-                    <div className="rounded-xl border border-[#9E7B4F]/45 bg-[#1F1B18]/85 p-4 backdrop-blur-xs">
+                    <div className="rounded-xl border border-[#9E7B4F]/50 bg-[#1F1B18]/85 p-3.5 backdrop-blur-xs">
                       <MonogramIcon
                         variant="dark"
-                        className="h-16 w-16 sm:h-20 sm:w-20 rounded-lg"
+                        className="h-14 w-14 sm:h-16 sm:w-16 rounded-lg"
                       />
                     </div>
-                    <span className="mt-4 inline-block rounded border border-[#FCFBF9]/20 bg-[#1F1B18]/75 px-3 py-1 font-mono text-[10.5px] font-medium uppercase tracking-[0.14em] text-[#F2EFE9]">
+                    <span className="mt-3.5 inline-block rounded border border-[#FCFBF9]/25 bg-[#1F1B18]/80 px-3 py-1 font-mono text-[10.5px] font-medium uppercase tracking-[0.14em] text-[#F2EFE9]">
                       Principal Chambers · FCCA (UK)
                     </span>
                   </div>
